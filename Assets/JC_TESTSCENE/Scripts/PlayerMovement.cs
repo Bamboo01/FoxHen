@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void UseItem(InputAction.CallbackContext context)
     {
+
         if (context.phase == InputActionPhase.Started) //phase start
         {
 
