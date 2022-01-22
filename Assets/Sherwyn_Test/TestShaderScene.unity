@@ -199,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpriteTransform: {fileID: 886019371}
   playerPivotTransform: {fileID: 23325904}
+  spriteRenderer: {fileID: 886019372}
 --- !u!210 &23325903
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -506,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpriteTransform: {fileID: 1834362801}
   playerPivotTransform: {fileID: 604730172}
+  spriteRenderer: {fileID: 1834362800}
 --- !u!1 &735951319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpriteTransform: {fileID: 779958939}
   playerPivotTransform: {fileID: 1135094782}
+  spriteRenderer: {fileID: 779958940}
 --- !u!210 &1135094781
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -1110,6 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpriteTransform: {fileID: 735951320}
   playerPivotTransform: {fileID: 1139331069}
+  spriteRenderer: {fileID: 735951321}
 --- !u!210 &1139331068
 SortingGroup:
   m_ObjectHideFlags: 0
