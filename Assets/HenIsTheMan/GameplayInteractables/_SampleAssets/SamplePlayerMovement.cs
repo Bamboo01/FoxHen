@@ -13,6 +13,9 @@ namespace FoxHen {
             [SerializeField]
             private Transform playerTransform;
 
+            [SerializeField]
+            private ParticleSystem lightningParticleSystem; //Idk where to put this lol
+
             private float savedSign = 1.0f;
 
             private void Start() {
@@ -34,6 +37,11 @@ namespace FoxHen {
                         if(!Mathf.Approximately(0.0f, moveInputValue.x)) {
                             savedSign = Mathf.Sign(moveInputValue.x);
                         }
+
+                        lightningParticleSystem.gameObject.SetActive(
+                            !Mathf.Approximately(0.0f, moveInputValue.x)
+                            || !Mathf.Approximately(0.0f, moveInputValue.y)
+                        );
 
                         playerTransform.localScale = new Vector3(
                             Mathf.Abs(playerTransform.localScale.x) * savedSign,
