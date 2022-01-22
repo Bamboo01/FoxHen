@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &65815017
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1704478175}
+    m_Modifications:
+    - target: {fileID: 3105237139849977488, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_Name
+      value: BloodParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+--- !u!4 &65815018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3105237139849977491, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+  m_PrefabInstance: {fileID: 65815017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &65815019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5485769155277920958, guid: cc14e5aaf7963f9478a7a1406bc9ebab, type: 3}
+  m_PrefabInstance: {fileID: 65815017}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e0066c98d11cc4abaee66cbd600b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &266855318
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameplayInteractableAttribs: {fileID: 11400000, guid: 28323a7f1508dea4db15668e45b2c686, type: 2}
+  bloodParticleSystemControl: {fileID: 65815019}
 --- !u!1 &1140270577
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +543,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
-  m_Children: []
+  m_Children:
+  - {fileID: 65815018}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

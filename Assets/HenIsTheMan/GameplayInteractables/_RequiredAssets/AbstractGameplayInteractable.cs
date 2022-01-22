@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FoxHen {
     internal abstract class AbstractGameplayInteractable: MonoBehaviour {
-        internal delegate void TriggerDelegate();
+        internal delegate void TriggerDelegate(Collider2D _);
 
         internal event TriggerDelegate triggerDelegate;
 
@@ -35,7 +35,7 @@ namespace FoxHen {
         protected void OnTriggerEnter2D(Collider2D other) {
             if((gameplayInteractableAttribs.layerMask.value & (1 << other.gameObject.layer)) != 0) {
                 gameplayInteractableAttribs.currLifetime = 0.0f;
-                triggerDelegate?.Invoke();
+                triggerDelegate?.Invoke(other);
             }
         }
 
