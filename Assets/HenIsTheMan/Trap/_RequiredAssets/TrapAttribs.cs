@@ -11,9 +11,11 @@ namespace FoxHen {
 		internal LayerMask layerMask;
 
 		[SerializeField]
-		internal bool shldUseLifetime;
+		internal bool shldLifetimeDecreaseOverTime;
 
 		[SerializeField]
-		internal float lifetime;
+		internal float maxLifetime;
+
+		internal float currLifetime;
 	}
 }

@@ -8,32 +8,32 @@ namespace FoxHen {
 
         internal event TriggerDelegate triggerDelegate;
 
-        public virtual void OnTrigger() {
-            triggerDelegate?.Invoke();
-        }
-
         protected void Awake() {
-            _ = trapAttribs.ObserveEveryValueChanged(myTrapAttribs => myTrapAttribs.lifetime)
+            trapAttribs.currLifetime = trapAttribs.maxLifetime;
+
+            _ = trapAttribs.ObserveEveryValueChanged(myTrapAttribs => myTrapAttribs.currLifetime)
                 .Where(lifetime => lifetime <= 0.0f)
                 .Subscribe(_ => {
                     gameObject.SetActive(false);
                 });
 
-            if(trapAttribs.shldUseLifetime) {
+            if(trapAttribs.shldLifetimeDecreaseOverTime) {
                 _ = this.UpdateAsObservable()
                     .Subscribe(_ => {
-                        trapAttribs.lifetime -= Time.deltaTime;
+                        trapAttribs.currLifetime -= Time.deltaTime;
                     });
             }
 
             AwakeFunc();
         }
 
-        protected abstract void AwakeFunc();
+        protected virtual void AwakeFunc() {
+        }
 
-        private void OnCollisionEnter(Collision collision) {
-            if((collision.gameObject.layer & trapAttribs.layerMask) != 0) {
-                trapAttribs.lifetime = 0.0f;
+        protected void OnTriggerEnter2D(Collider2D other) {
+            if((trapAttribs.layerMask.value & (1 << other.gameObject.layer)) != 0) {
+                trapAttribs.currLifetime = 0.0f;
+                triggerDelegate?.Invoke();
             }
         }
 
