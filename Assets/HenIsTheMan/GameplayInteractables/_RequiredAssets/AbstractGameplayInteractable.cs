@@ -3,24 +3,26 @@ using UniRx.Triggers;
 using UnityEngine;
 
 namespace FoxHen {
-    internal abstract class AbstractTrap: MonoBehaviour {
+    internal abstract class AbstractGameplayInteractable: MonoBehaviour {
         internal delegate void TriggerDelegate();
 
         internal event TriggerDelegate triggerDelegate;
 
         protected void Awake() {
-            trapAttribs.currLifetime = trapAttribs.maxLifetime;
+            gameplayInteractableAttribs.currLifetime = gameplayInteractableAttribs.maxLifetime;
 
-            _ = trapAttribs.ObserveEveryValueChanged(myTrapAttribs => myTrapAttribs.currLifetime)
+            _ = gameplayInteractableAttribs.ObserveEveryValueChanged(
+                mygameplayInteractableAttribs => mygameplayInteractableAttribs.currLifetime
+            )
                 .Where(lifetime => lifetime <= 0.0f)
                 .Subscribe(_ => {
                     gameObject.SetActive(false);
                 });
 
-            if(trapAttribs.shldLifetimeDecreaseOverTime) {
+            if(gameplayInteractableAttribs.shldLifetimeDecreaseOverTime) {
                 _ = this.UpdateAsObservable()
                     .Subscribe(_ => {
-                        trapAttribs.currLifetime -= Time.deltaTime;
+                        gameplayInteractableAttribs.currLifetime -= Time.deltaTime;
                     });
             }
 
@@ -31,13 +33,13 @@ namespace FoxHen {
         }
 
         protected void OnTriggerEnter2D(Collider2D other) {
-            if((trapAttribs.layerMask.value & (1 << other.gameObject.layer)) != 0) {
-                trapAttribs.currLifetime = 0.0f;
+            if((gameplayInteractableAttribs.layerMask.value & (1 << other.gameObject.layer)) != 0) {
+                gameplayInteractableAttribs.currLifetime = 0.0f;
                 triggerDelegate?.Invoke();
             }
         }
 
         [SerializeField]
-        private TrapAttribs trapAttribs;
+        private GameplayInteractableAttribs gameplayInteractableAttribs;
     }
 }
