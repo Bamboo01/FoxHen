@@ -61,7 +61,7 @@ namespace FoxHen {
 
             statusCancelledCallback = new Dictionary<Status, StatusEventTrigger>();
             statusCancelledCallback.Add(Status.slowed, HastenedCallback);
-            statusCancelledCallback.Add(Status.stunned, StunnedCallback);
+            statusCancelledCallback.Add(Status.stunned, UnstunnedCallback);
             statusCancelledCallback.Add(Status.hastened, SlowedCallback);
             statusCancelledCallback.Add(Status.invulnerable, VulnerableCallback);
 
@@ -82,7 +82,6 @@ namespace FoxHen {
         private void SlowedCallback(Status _status)
         {
             moveSpeed *= 0.6667f;
-            Debug.Log(moveSpeed);
         }
 
         private void StunnedCallback(Status _status)
@@ -93,7 +92,6 @@ namespace FoxHen {
         private void HastenedCallback(Status _status)
         {
             moveSpeed *= 1.5f;
-            Debug.Log(moveSpeed);
         }
 
         private void InvulnerableCallback(Status _status)
@@ -104,6 +102,11 @@ namespace FoxHen {
         private void VulnerableCallback(Status _status)
         {
             isInvulnerable = false;
+        }
+
+        private void UnstunnedCallback(Status _status)
+        {
+            moveSpeed = defaultMoveSpeed;
         }
         #endregion
 

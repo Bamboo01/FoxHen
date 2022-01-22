@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a23c33f3915e458bd2003861da671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapAttribs: {fileID: 11400000, guid: 9cf9983f0cb42b94f900828398749776, type: 2}
+  gameplayInteractableAttribs: {fileID: 11400000, guid: 28323a7f1508dea4db15668e45b2c686, type: 2}
 --- !u!1 &1140270577
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1704478178}
   - component: {fileID: 1704478179}
   - component: {fileID: 1704478177}
+  - component: {fileID: 1704478180}
   - component: {fileID: 1704478176}
   m_Layer: 0
   m_Name: Player
@@ -498,10 +499,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704478174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6972a93de2720f40a301c35eb582cf5, type: 3}
+  m_Script: {fileID: 11500000, guid: c4d2a9113b2c13644a3764a020e86a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDist: 4
   menuCD: 0
 --- !u!212 &1704478177
 SpriteRenderer:
@@ -601,3 +601,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1704478180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704478174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ada1dd9b82fed24386e2d9cec75b698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
