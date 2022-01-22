@@ -34,17 +34,8 @@ namespace FoxHen {
 
         protected internal IObservable<Unit> onTriggerObservable;
 
-        protected float maxHealth;
-
-        protected float currHealth;
-
-        protected float rangeDmgRange; //Dist rangeDmg will go
-
-        protected float rangeDmg;
-
-        protected float triggerRange; //Range in which the trap will be triggered
-
-        protected float triggerDmg;
+        [SerializeField]
+        private TrapAttribs trapAttribs;
 
         private Dictionary<object, List<GameObject>> affectableDict;
     }
