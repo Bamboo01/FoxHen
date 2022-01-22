@@ -91,9 +91,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4512834194300574377}
-  - component: {fileID: 87018911373645615}
-  - component: {fileID: 4512834194300574379}
+  - component: {fileID: 1421710026468184662}
   - component: {fileID: 640973897607123790}
+  - component: {fileID: 4709870605115095738}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -108,15 +108,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4512834194300574356}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3480216203015256605}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &87018911373645615
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1421710026468184662
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,24 +125,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4512834194300574356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414dcca5ad1d82247b179cfe5ce51675, type: 3}
+  m_Script: {fileID: 11500000, guid: f8aa9861891874f43a59cefef46b9a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 748019868499394459}
---- !u!114 &4512834194300574379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4512834194300574356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec5fab6a2ced654b93e32f19fe7f550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDist: 1
-  menuCD: 0
 --- !u!114 &640973897607123790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +155,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4512834194300574379}
-        m_TargetAssemblyTypeName: FoxHen.PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1421710026468184662}
+        m_TargetAssemblyTypeName: FoxHen.PlayerController, Assembly-CSharp
         m_MethodName: OnUseItem
         m_Mode: 0
         m_Arguments:
@@ -186,8 +171,8 @@ MonoBehaviour:
     m_ActionName: Player1_Keyboard/UseItem[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4512834194300574379}
-        m_TargetAssemblyTypeName: FoxHen.PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 1421710026468184662}
+        m_TargetAssemblyTypeName: FoxHen.PlayerController, Assembly-CSharp
         m_MethodName: OnMoveInput
         m_Mode: 0
         m_Arguments:
@@ -205,3 +190,15 @@ MonoBehaviour:
   m_DefaultActionMap: Player1_Keyboard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4709870605115095738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512834194300574356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ada1dd9b82fed24386e2d9cec75b698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

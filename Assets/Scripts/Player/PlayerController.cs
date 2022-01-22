@@ -9,10 +9,9 @@ namespace FoxHen
     public class PlayerController : MonoBehaviour
     {
         public PlayerAttributes playerAttrib { get; private set; }
-        public float menuCD;
         private GameObject player;
         private Vector2 moveInputValue;
-        private PlayerInputActions inputActions;
+        //private PlayerInputActions inputActions;
 
         private void Start()
         {
@@ -28,7 +27,7 @@ namespace FoxHen
 
             //input.actions.actionMaps[0].
 
-            menuCD = 0f;
+            DontDestroyOnLoad(gameObject);
             player = gameObject;
             moveInputValue = Vector2.zero;
             playerAttrib = GetComponent<PlayerAttributes>();
