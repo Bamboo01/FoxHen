@@ -34,20 +34,24 @@ namespace FoxHen
             itemTypeList = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList();
         }
 
-        public void AddItem(ItemType item)
+        public bool AddItem(ItemType item)
         {
             if(storedItem != ItemType.none)
             {
                 storedItem = item;
+                return true;
             }
+            return false;
         }
 
-        public void AddRandomItem()
+        public bool AddRandomItem()
         {
             if (storedItem != ItemType.none)
             {
                 storedItem = itemTypeList[UnityEngine.Random.Range(0, itemTypeList.Count)];
+                return true;
             }
+            return false;
         }
 
         public void UseItem()

@@ -13,25 +13,28 @@ namespace FoxHen
         private GameObject player;
         private Vector2 moveInputValue;
         private PlayerInputActions inputActions;
+        private PlayerInventory playerInventory;
+        private Rigidbody2D rigidbody;
 
         private void Start()
         {
             //c# delegates
             //note to rmb to generate class from input asset UI
-            //inputActions = new PlayerInputActions();
-            //PlayerInput input = GetComponent<PlayerInput>();
-            //input.actions = inputActions.asset;
-            //inputActions.Player1_Keyboard.Enable();
-            //inputActions.Player1_Keyboard.UseItem.performed += OnUseItem;
-            //inputActions.Player1_Keyboard.Movement.performed += OnMoveInput;
-            //inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
-
-            //input.actions.actionMaps[0].
+            inputActions = new PlayerInputActions();
+            PlayerInput input = new PlayerInput();
+            input.actions = inputActions.asset;
+            inputActions.Player1_Keyboard.Enable();
+            inputActions.Player1_Keyboard.UseItem.performed += OnUseItem;
+            inputActions.Player1_Keyboard.Movement.performed += OnMoveInput;
+            inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
 
             menuCD = 0f;
             player = gameObject;
             moveInputValue = Vector2.zero;
             playerAttrib = GetComponent<PlayerAttributes>();
+            playerInventory = GetComponent<PlayerInventory>();
+            playerInventory.activateItemDelegate += ActivateItem;
+            rigidbody = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -42,7 +45,7 @@ namespace FoxHen
 
         private void TransformUpdate()
         {
-            player.transform.position += new Vector3(moveInputValue.x, moveInputValue.y, 0) * playerAttrib.moveSpeed * Time.deltaTime;
+            rigidbody.velocity = new Vector3(moveInputValue.x, moveInputValue.y, 0) * playerAttrib.moveSpeed;
         }
 
         #region MainMenu
@@ -65,18 +68,10 @@ namespace FoxHen
 
         public void OnUseItem(InputAction.CallbackContext context)
         {
-
-            if (context.phase == InputActionPhase.Started) //phase start
+            if (context.phase == InputActionPhase.Performed)//phase performing
             {
-
-            }
-            else if (context.phase == InputActionPhase.Performed)//phase performing
-            {
-                //use item
-            }
-            else if (context.phase == InputActionPhase.Canceled) //phase end
-            {
-
+                playerInventory.UseItem();
+                Debug.Log("HI");
             }
         }
 
@@ -91,5 +86,11 @@ namespace FoxHen
         }
 
         #endregion
+
+        public void ActivateItem(ItemType item)
+        {
+            Debug.Log("Activated" + item.ToString());
+        }
+        
     }
 }
