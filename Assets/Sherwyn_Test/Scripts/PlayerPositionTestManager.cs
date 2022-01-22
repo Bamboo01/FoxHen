@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Bamboo.Utility;
+using FoxHen;
 
 namespace Sherwyn_Test
 {

@@ -25,7 +25,7 @@ namespace Bamboo.Audio
     }
 
 
-    public class SoundManager : Singleton<SoundManager>
+    public class SoundManager : Singleton<SoundManager>, IPreloadedObject
     {
         [Header("2D Audio")]
         [SerializeField] List<Sound> soundClips = new List<Sound>();
@@ -44,6 +44,9 @@ namespace Bamboo.Audio
         private Queue<GameObject> pointAudioPool = new Queue<GameObject>();
 
         public bool has3DAudio => canPlay3DAudio;
+
+        bool _isDoneLoading = false;
+        public bool isDoneLoading => _isDoneLoading;
 
         #region point audio pooling
         public GameObject spawnFromPool(int count = 0)
@@ -104,6 +107,8 @@ namespace Bamboo.Audio
                     obj.transform.SetParent(this.gameObject.transform);
                 }
             }
+
+            _isDoneLoading = true;
         }
 
         public void PlaySound(string Name)
