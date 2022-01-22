@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2489185892633616987}
   - component: {fileID: 2489185892633616986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Backyard_Turnip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2489185894506990652}
   - component: {fileID: 2489185894506990655}
   - component: {fileID: 2489185894506990654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turnips
   m_TagString: Untagged
   m_Icon: {fileID: 0}

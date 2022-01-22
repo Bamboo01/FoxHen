@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Bamboo.Utility;
+using Bamboo.Events;
 
 namespace FoxHen
 {
@@ -9,7 +10,7 @@ namespace FoxHen
     {
         const int _maxPlayers = 4;
         private int _numPlayers;
-        private PlayerPositionsHolder[] _players;
+        private List<PlayerPositionsHolder> _players = new List<PlayerPositionsHolder>();
         private bool isInit = false;
 
         private List<Renderer> renderers = new List<Renderer>();
@@ -20,11 +21,18 @@ namespace FoxHen
             _persistent = false;
         }
 
-        public void InitManager(PlayerPositionsHolder[] players)
+        void Start()
         {
-            _numPlayers = players.Length > _maxPlayers ? _maxPlayers : players.Length;
-            _players = players;
-            isInit = true;
+            EventManager.Instance.Listen("PlayerSpawned", OnPlayerSpawned);
+        }
+
+        public void OnPlayerSpawned(IEventRequestInfo info)
+        {
+            if (_numPlayers == 4) return;
+            if (_numPlayers == 0) isInit = true;
+            _numPlayers++;
+
+            _players.Add((info as EventRequestInfo).sender as PlayerPositionsHolder);
         }
 
         public void AddSeeThroughObject(Renderer obj)
@@ -37,9 +45,9 @@ namespace FoxHen
         {
             if (!isInit) return;
 
-            Vector4[] positions = new Vector4[_players.Length];
-            Vector4[] pivotPositions = new Vector4[_players.Length];
-            for (int i = 0; i < _players.Length; i++)
+            Vector4[] positions = new Vector4[_maxPlayers];
+            Vector4[] pivotPositions = new Vector4[_maxPlayers];
+            for (int i = 0; i < _players.Count; i++)
             {
                 pivotPositions[i] = _players[i].playerPivotTransform.position;
                 positions[i] = _players[i].playerSpriteTransform.position;

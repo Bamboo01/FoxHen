@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7771460485107468335}
   - component: {fileID: 7771460485107468334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Backyard_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,8 @@ GameObject:
   - component: {fileID: 7771460485561441174}
   - component: {fileID: 170369706005600021}
   - component: {fileID: 1328165970427847905}
-  m_Layer: 0
+  - component: {fileID: 6826947883593117307}
+  m_Layer: 6
   m_Name: BackyardBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,3 +143,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.25}
   m_Size: {x: 2.88, y: 2}
   m_Direction: 1
+--- !u!114 &6826947883593117307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771460485561441175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 7771460485107468334}
+  minSeeThroughDistance: 0.1
+  maxSeeThroughDistance: 0.5

@@ -16,6 +16,6 @@ public class SplashScreenManager : MonoBehaviour
                 return;
         }
 
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene("Gameplay");
     }
 }

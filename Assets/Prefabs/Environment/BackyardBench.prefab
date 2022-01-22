@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4651874093834105004}
   - component: {fileID: 4535262133625653171}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Backyard_Bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,8 @@ GameObject:
   - component: {fileID: 3319296937298279820}
   - component: {fileID: 4606778248007545090}
   - component: {fileID: 995630068947465390}
-  m_Layer: 0
+  - component: {fileID: 1106618237123620251}
+  m_Layer: 6
   m_Name: BackyardBench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,3 +156,18 @@ PolygonCollider2D:
       - {x: 4.8, y: 0.5}
       - {x: 4.8, y: -2.9}
       - {x: -4.8, y: -2.9}
+--- !u!114 &1106618237123620251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2665866226641478891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 4535262133625653171}
+  minSeeThroughDistance: 0.1
+  maxSeeThroughDistance: 0.5

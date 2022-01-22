@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9157951926272630874}
   - component: {fileID: 9157951926272630875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9157951927517306464}
   - component: {fileID: 9157951927517306465}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Backyard_Bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
