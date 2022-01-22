@@ -18,13 +18,13 @@ namespace FoxHen
         {
             //c# delegates
             //note to rmb to generate class from input asset UI
-            inputActions = new PlayerInputActions();
-            PlayerInput input = GetComponent<PlayerInput>();
-            input.actions = inputActions.asset;
-            inputActions.Player1_Keyboard.Enable();
-            inputActions.Player1_Keyboard.UseItem.performed += OnUseItem;
-            inputActions.Player1_Keyboard.Movement.performed += OnMoveInput;
-            inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
+            //inputActions = new PlayerInputActions();
+            //PlayerInput input = GetComponent<PlayerInput>();
+            //input.actions = inputActions.asset;
+            //inputActions.Player1_Keyboard.Enable();
+            //inputActions.Player1_Keyboard.UseItem.performed += OnUseItem;
+            //inputActions.Player1_Keyboard.Movement.performed += OnMoveInput;
+            //inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
 
             //input.actions.actionMaps[0].
 
@@ -37,12 +37,6 @@ namespace FoxHen
         {
             TransformUpdate();
             return;
-
-            if (GameManager.Instance.currScene == GameManager.sceneNames.MainMenu)
-            {
-                MainMenuUpdate();
-                return;
-            }
         }
 
         private void TransformUpdate()

@@ -7,8 +7,12 @@ namespace Bamboo.Events
 {
     public class EventChannel : UnityEvent<IEventRequestInfo> { }
 
-    public class EventManager : MonoBehaviour
+    public class EventManager : MonoBehaviour , IPreloadedObject
     {
+
+        bool _isDoneLoading = false;
+        public bool isDoneLoading => _isDoneLoading;
+
         // Singleton
         static public EventManager Instance
         {
@@ -17,6 +21,7 @@ namespace Bamboo.Events
         }
         public void Awake()
         {
+            DontDestroyOnLoad(this.gameObject);
             if (Instance)
             {
 #if UNITY_EDITOR
@@ -29,6 +34,8 @@ namespace Bamboo.Events
             {
                 Instance = this;
             }
+
+            _isDoneLoading = true;
         }
 
         /// <summary>

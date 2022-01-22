@@ -1,10 +1,14 @@
 namespace Bamboo.Utility
 {
-    public sealed class CoroutineManager : Singleton<CoroutineManager>
+    public sealed class CoroutineManager : Singleton<CoroutineManager> , IPreloadedObject
     {
-        private void Awake()
+        bool _isDoneLoading = false;
+        public bool isDoneLoading => _isDoneLoading;
+
+        protected override void OnAwake()
         {
             _persistent = true;
+            _isDoneLoading = true;
         }
     }
 }

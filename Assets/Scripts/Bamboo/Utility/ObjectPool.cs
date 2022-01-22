@@ -19,11 +19,6 @@ namespace Bamboo.Utility
         public Dictionary<string, Pool> tagToPool;
         public Dictionary<string, Queue<GameObject>> poolDirectory;
 
-        public void Awake()
-        {
-
-        }
-
         void Start()
         {
             poolDirectory = new Dictionary<string, Queue<GameObject>>();
