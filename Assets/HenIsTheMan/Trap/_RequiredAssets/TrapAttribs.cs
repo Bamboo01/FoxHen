@@ -8,21 +8,12 @@ namespace FoxHen {
 	)]
 	internal sealed class TrapAttribs: ScriptableObject {
 		[SerializeField]
-		internal float maxHealth;
+		internal LayerMask layerMask;
 
 		[SerializeField]
-		internal float currHealth;
+		internal bool shldUseLifetime;
 
 		[SerializeField]
-		internal float rangeDmgRange; //Dist rangeDmg will go
-
-		[SerializeField]
-		internal float rangeDmg;
-
-		[SerializeField]
-		internal float triggerRange; //Range in which the trap will be triggered
-
-		[SerializeField]
-		internal float triggerDmg;
+		internal float lifetime;
 	}
 }
