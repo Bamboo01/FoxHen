@@ -304,6 +304,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplayInteractableAttribs: {fileID: 11400000, guid: 28323a7f1508dea4db15668e45b2c686, type: 2}
   bloodParticleSystemControl: {fileID: 65815019}
+--- !u!1001 &978448157
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1704478175}
+    m_Modifications:
+    - target: {fileID: 4989257845017364210, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1704478175}
+    - target: {fileID: 4989257845017364210, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: spawnIntervalInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133575, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_Name
+      value: LightningParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133575, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+--- !u!4 &978448158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5450375085287133626, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+  m_PrefabInstance: {fileID: 978448157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1140270577
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +482,11 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!198 &1621325746 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5450375085287133573, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+  m_PrefabInstance: {fileID: 978448157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1659321247
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +612,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 65815018}
+  - {fileID: 978448158}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -562,6 +630,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDist: 4
   menuCD: 0
+  playerTransform: {fileID: 1704478175}
+  lightningParticleSystem: {fileID: 1621325746}
 --- !u!212 &1704478177
 SpriteRenderer:
   m_ObjectHideFlags: 0

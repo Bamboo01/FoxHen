@@ -11,11 +11,5 @@ namespace FoxHen {
 
         [SerializeField]
         private int particleCount;
-
-        private ParticleSystem.EmitParams emitParams;
-
-        private void Awake() {
-            emitParams = new ParticleSystem.EmitParams();
-        }
     }
 }
