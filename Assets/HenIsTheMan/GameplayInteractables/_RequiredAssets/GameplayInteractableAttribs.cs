@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace FoxHen {
 	[CreateAssetMenu(
-		fileName = nameof(TrapAttribs),
-		menuName = StrHelper.scriptableObjsFolderPath + nameof(TrapAttribs)
+		fileName = nameof(GameplayInteractableAttribs),
+		menuName = StrHelper.scriptableObjsFolderPath + nameof(GameplayInteractableAttribs)
 	)]
-	internal sealed class TrapAttribs: ScriptableObject {
+	internal sealed class GameplayInteractableAttribs: ScriptableObject {
 		[SerializeField]
 		internal LayerMask layerMask;
 
