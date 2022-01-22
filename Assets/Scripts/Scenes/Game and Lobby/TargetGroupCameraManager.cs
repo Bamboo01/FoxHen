@@ -11,7 +11,7 @@ namespace FoxHen
     {
         private CinemachineTargetGroup cinemachineTargetGroup;
 
-        void Awake()
+        void Start()
         {
             EventManager.Instance.Listen("PlayerSpawned", OnPlayerSpawned);
             cinemachineTargetGroup = GetComponent<CinemachineTargetGroup>();

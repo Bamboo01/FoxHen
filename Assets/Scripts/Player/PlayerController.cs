@@ -9,7 +9,6 @@ namespace FoxHen
     public class PlayerController : MonoBehaviour
     {
         public PlayerAttributes playerAttrib { get; private set; }
-        public float menuCD;
         private GameObject player;
         private Vector2 moveInputValue;
         private PlayerInputActions inputActions;
@@ -28,7 +27,7 @@ namespace FoxHen
             inputActions.Player1_Keyboard.Movement.performed += OnMoveInput;
             inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
 
-            menuCD = 0f;
+            DontDestroyOnLoad(gameObject);
             player = gameObject;
             moveInputValue = Vector2.zero;
             playerAttrib = GetComponent<PlayerAttributes>();
@@ -91,6 +90,6 @@ namespace FoxHen
         {
             Debug.Log("Activated" + item.ToString());
         }
-        
+
     }
 }

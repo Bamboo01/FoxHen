@@ -40,7 +40,7 @@ public class GameManager : Singleton<GameManager>
         players.Add(input.gameObject);
         if (currScene == sceneNames.MainMenu)
         {
-            MainMenuManagerPLUS.Instance.playerEnter(input.gameObject);
+            MainMenuManagerPLUS.Instance.playerEnter(input);
         }
     }
 
