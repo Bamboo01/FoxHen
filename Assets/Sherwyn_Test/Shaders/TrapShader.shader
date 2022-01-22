@@ -1,4 +1,4 @@
-Shader "Unlit/SeeThroughShader"
+Shader "Unlit/TrapShader"
 {
 	Properties
 	{
@@ -97,18 +97,16 @@ Shader "Unlit/SeeThroughShader"
                     float4 closestPlayer;
                     for (int i = 0; i < _NumPlayers; i++)
                     {
-                        if (_CurrPosition.y > _PlayerPivotPositions[i].y)
-                        {
-                            continue;
-                        }
-
                         float dist = length(IN.worldPos - _PlayerPositions[i]);
                         if (dist < lowestDist)
                             lowestDist = dist;
                     }
-                    c.a = lerp(_MinDistance, _MaxDistance, lowestDist);
-                    //float stepVal = step(c.a, 0.7f);
+                    
+                    c.a = lowestDist / (_MaxDistance - _MinDistance);
                     c.a = clamp(0, 1, c.a);
+                    c.a = 1.0f - c.a;
+                    if (c.a > 0.4f)
+                        c.a = 1.0f;
                 }
 
 				c.rgb *= c.a;
