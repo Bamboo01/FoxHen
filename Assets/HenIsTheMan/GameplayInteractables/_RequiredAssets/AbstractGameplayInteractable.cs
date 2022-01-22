@@ -17,13 +17,15 @@ namespace FoxHen {
                 .Where(lifetime => lifetime <= 0.0f)
                 .Subscribe(_ => {
                     gameObject.SetActive(false);
-                });
+                })
+                .AddTo(this);
 
             if(gameplayInteractableAttribs.shldLifetimeDecreaseOverTime) {
                 _ = this.UpdateAsObservable()
                     .Subscribe(_ => {
                         gameplayInteractableAttribs.currLifetime -= Time.deltaTime;
-                    });
+                    })
+                    .AddTo(this);
             }
 
             AwakeFunc();

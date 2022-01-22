@@ -562,6 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDist: 4
   menuCD: 0
+  playerTransform: {fileID: 1704478175}
 --- !u!212 &1704478177
 SpriteRenderer:
   m_ObjectHideFlags: 0
