@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5450375085287133573}
   - component: {fileID: 5450375085287133572}
   m_Layer: 0
-  m_Name: LightningPrefab
+  m_Name: LightningParticleSystemPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5450375085287133575}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -283,9 +283,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 14
-      minScalar: 1
+      minScalar: 24
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -336,9 +336,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 7
-      minScalar: 1
+      minScalar: 7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -389,9 +389,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 7
-      minScalar: 1
+      minScalar: 7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4786,7 +4786,7 @@ ParticleSystemRenderer:
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
-  m_SortingFudge: 0
+  m_SortingFudge: 1
   m_NormalDirection: 1
   m_ShadowBias: 0
   m_RenderAlignment: 1
