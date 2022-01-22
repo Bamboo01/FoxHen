@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
+using Bamboo.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (GameManager.Instance.currScene == GameManager.sceneNames.MainMenu)
         {
             MainMenuUpdate();
             return;
@@ -45,11 +45,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void MainMenuUpdate()
     {
-        //if (Mathf.Abs(moveInputValue.y) > 0.85f)
-        //{
-        //    if (moveInputValue.y > 0)
-        //        else
-        //}
+        bool Up = false;
+        if (Mathf.Abs(moveInputValue.y) > 0.85f)
+        {
+            if (moveInputValue.y > 0)
+                Up = true;
+
+            MainMenuManagerPLUS.Instance.playerMenuInput(Up, gameObject);
+        }
+
     }
 
     #endregion
