@@ -145,6 +145,16 @@
                     "devicePath": "<Keyboard>",
                     "isOptional": true,
                     "isOR": false
+                },
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<HID::Logitech Logitech Dual Action>",
+                    "isOptional": true,
+                    "isOR": false
                 }
             ]
         }

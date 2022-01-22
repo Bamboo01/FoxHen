@@ -188,19 +188,7 @@ MonoBehaviour:
         m_CallState: 2
   m_PlayerLeftEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 277845062}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayerLeave
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_JoinAction:
     m_UseReference: 0
     m_Action:
@@ -222,6 +210,14 @@ MonoBehaviour:
       - m_Name: 
         m_Id: f9a5a27f-1f54-4f92-81f4-0dedc853e4f3
         m_Path: <HID::Logitech Logitech Dual Action>/button3
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 95015f48-3b26-4dfd-8f61-6823c0a0d721
+        m_Path: <Keyboard>/enter
         m_Interactions: 
         m_Processors: 
         m_Groups: 
