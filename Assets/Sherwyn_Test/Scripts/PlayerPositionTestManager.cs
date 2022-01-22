@@ -18,7 +18,6 @@ namespace Sherwyn_Test
         void Start()
         {
             PlayerPositionsHolder[] seeThroughPlayers = FindObjectsOfType<PlayerPositionsHolder>();
-            PlayerPositionToShaderManager.Instance.InitManager(seeThroughPlayers);
         }
     }
 }

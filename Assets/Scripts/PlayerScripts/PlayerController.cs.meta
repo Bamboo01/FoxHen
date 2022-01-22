@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Player/PlayerController.cs.meta
+guid: f8aa9861891874f43a59cefef46b9a3a
+=======
+guid: bc79e99bbaf1a8447a162b322c52286b
+>>>>>>> sherwyn_branch:Assets/Scripts/Bamboo/Utility/IPreloadedObject.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
