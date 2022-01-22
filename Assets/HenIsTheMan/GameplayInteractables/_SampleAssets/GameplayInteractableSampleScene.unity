@@ -315,6 +315,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1704478175}
+    - target: {fileID: 4989257845017364210, guid: 32aef0c7d970871478519a95e417f022, type: 3}
+      propertyPath: spawnIntervalInSec
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5450375085287133575, guid: 32aef0c7d970871478519a95e417f022, type: 3}
       propertyPath: m_Name
       value: LightningParticleSystem
