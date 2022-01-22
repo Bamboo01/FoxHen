@@ -94,6 +94,10 @@ GameObject:
   - component: {fileID: 1421710026468184662}
   - component: {fileID: 640973897607123790}
   - component: {fileID: 4709870605115095738}
+  - component: {fileID: 6692155606260108167}
+  - component: {fileID: 4188234673918508968}
+  - component: {fileID: 3687746095684850762}
+  - component: {fileID: 8345182211808607507}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -202,3 +206,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ada1dd9b82fed24386e2d9cec75b698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6692155606260108167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512834194300574356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916288e6063ec8748a4f46af3c902a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4188234673918508968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512834194300574356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60fb33a2a3a28714f9b7665f193efa2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpriteTransform: {fileID: 3480216203015256605}
+  playerPivotTransform: {fileID: 4512834194300574377}
+  spriteRenderer: {fileID: 3080008931686567403}
+--- !u!50 &3687746095684850762
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512834194300574356}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!210 &8345182211808607507
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512834194300574356}
+  m_Enabled: 1
+  m_SortingLayerID: 879155235
+  m_SortingLayer: 1
+  m_SortingOrder: 0

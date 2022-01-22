@@ -9,14 +9,20 @@ public class SplashScreenManager : MonoBehaviour
 {
     [SerializeField] CanvasGroup splashCanvasGroup;
     bool loadedScene;
+    bool unloadedScene;
+    bool hasStartedAsyncLoading = false;
+    AsyncOperation operation;
 
     private void Start()
     {
         loadedScene = false;
+        unloadedScene = false;
     }
 
     void Update()
     {
+        if (hasStartedAsyncLoading) return;
+
         var ss = FindObjectsOfType<MonoBehaviour>().OfType<IPreloadedObject>();
         foreach (IPreloadedObject s in ss)
         {
@@ -24,15 +30,57 @@ public class SplashScreenManager : MonoBehaviour
                 return;
         }
 
-        if (!loadedScene)
+        
+
+        //if (!loadedScene)
+        //{
+        //    operation = SceneManager.LoadSceneAsync("LobbyScene", LoadSceneMode.Additive);
+        //    operation.allowSceneActivation = false;
+        //    loadedScene = true;
+        //}
+
+        splashCanvasGroup.alpha -= (Time.deltaTime / 3);
+        if (splashCanvasGroup.alpha == 0)
         {
-            SceneManager.LoadSceneAsync("LobbyScene", LoadSceneMode.Additive);
-            loadedScene = true;
+            hasStartedAsyncLoading = true;
+            StartCoroutine(BeginOperation());
         }
 
-        splashCanvasGroup.alpha -= ( Time.deltaTime / 3 );
-        if (splashCanvasGroup.alpha == 0)
-            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("SplashScreen"));
+        IEnumerator BeginOperation()
+        {
+            yield return StartCoroutine(StartLoadingLobbyScene());
+            yield return StartCoroutine(StartUnloadingSplashScreen());
+        }
+
+        IEnumerator StartUnloadingSplashScreen()
+        {
+            var asyncUnload = SceneManager.UnloadSceneAsync(gameObject.scene);
+            Debug.Log("Unloading");
+            while (!asyncUnload.isDone) yield return null;
+            Debug.Log("Unloading 01");
+            yield break;
+        }
+
+        IEnumerator StartLoadingLobbyScene()
+        {
+            Debug.Log("Loading");
+            var _asyncSceneLoadOperation = SceneManager.LoadSceneAsync("LobbyScene", LoadSceneMode.Additive);
+            Debug.Log("Loading 01");
+            _asyncSceneLoadOperation.allowSceneActivation = false;
+            while (!_asyncSceneLoadOperation.isDone)
+            {
+                if (_asyncSceneLoadOperation.progress >= 0.9f)
+                    _asyncSceneLoadOperation.allowSceneActivation = true;
+                yield return null;
+            }
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("LobbyScene"));
+            yield break;
+        }
+    }
+
+    public void SceneUnloaded(AsyncOperation asyncOperation)
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("LobbyScene"));
     }
 
 }

@@ -25,7 +25,7 @@ namespace Bamboo.Utility
                 lock (Lock)
                 {
                     if (_instance != null) return _instance;
-                    var instances = FindObjectsOfType<T>();
+                    var instances = FindObjectsOfType<T>(true);
                     var count = instances.Length;
                     if (count > 0)
                     {
@@ -50,6 +50,7 @@ namespace Bamboo.Utility
         #region  Methods
         private void Awake()
         {
+            if (_instance == null) _instance = this.gameObject.GetComponent<T>();
             OnAwake();
             if (_persistent)
                 DontDestroyOnLoad(gameObject);

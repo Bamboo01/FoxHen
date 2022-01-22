@@ -11,21 +11,21 @@ namespace FoxHen
         public PlayerAttributes playerAttrib { get; private set; }
         private GameObject player;
         private Vector2 moveInputValue;
-        private PlayerInputActions inputActions;
+        //private PlayerInputActions inputActions;
         private PlayerInventory playerInventory;
         private Rigidbody2D rigidbody;
 
         private void Start()
         {
             //c# delegates
-            //note to rmb to generate class from input asset UI
-            inputActions = new PlayerInputActions();
-            PlayerInput input = new PlayerInput();
-            input.actions = inputActions.asset;
-            inputActions.Player1_Keyboard.Enable();
-            inputActions.Player1_Keyboard.UseItem.performed += OnUseItem;
-            inputActions.Player1_Keyboard.Movement.performed += OnMoveInput;
-            inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
+            ////note to rmb to generate class from input asset UI
+            //inputActions = new PlayerInputActions();
+            //PlayerInput input = new PlayerInput();
+            //input.actions = inputActions.asset;
+            //inputActions.Player1_Keyboard.Enable();
+            //inputActions.Player1_Keyboard.UseItem.performed += OnUseItem;
+            //inputActions.Player1_Keyboard.Movement.performed += OnMoveInput;
+            //inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
 
             DontDestroyOnLoad(gameObject);
             player = gameObject;
