@@ -8,7 +8,7 @@ namespace FoxHen
 {
     public class PlayerController : MonoBehaviour
     {
-        public PlayerAttributes playerAttrib;
+        public PlayerAttributes playerAttrib { get; private set; }
         public float menuCD;
         private GameObject player;
         private Vector2 moveInputValue;
@@ -31,6 +31,7 @@ namespace FoxHen
             menuCD = 0f;
             player = gameObject;
             moveInputValue = Vector2.zero;
+            playerAttrib = GetComponent<PlayerAttributes>();
         }
 
         private void Update()
