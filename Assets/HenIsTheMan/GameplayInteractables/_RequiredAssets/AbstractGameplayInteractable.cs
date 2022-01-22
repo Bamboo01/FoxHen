@@ -1,0 +1,45 @@
+using UniRx;
+using UniRx.Triggers;
+using UnityEngine;
+
+namespace FoxHen {
+    internal abstract class AbstractGameplayInteractable: MonoBehaviour {
+        internal delegate void TriggerDelegate();
+
+        internal event TriggerDelegate triggerDelegate;
+
+        protected void Awake() {
+            gameplayInteractableAttribs.currLifetime = gameplayInteractableAttribs.maxLifetime;
+
+            _ = gameplayInteractableAttribs.ObserveEveryValueChanged(
+                mygameplayInteractableAttribs => mygameplayInteractableAttribs.currLifetime
+            )
+                .Where(lifetime => lifetime <= 0.0f)
+                .Subscribe(_ => {
+                    gameObject.SetActive(false);
+                });
+
+            if(gameplayInteractableAttribs.shldLifetimeDecreaseOverTime) {
+                _ = this.UpdateAsObservable()
+                    .Subscribe(_ => {
+                        gameplayInteractableAttribs.currLifetime -= Time.deltaTime;
+                    });
+            }
+
+            AwakeFunc();
+        }
+
+        protected virtual void AwakeFunc() {
+        }
+
+        protected void OnTriggerEnter2D(Collider2D other) {
+            if((gameplayInteractableAttribs.layerMask.value & (1 << other.gameObject.layer)) != 0) {
+                gameplayInteractableAttribs.currLifetime = 0.0f;
+                triggerDelegate?.Invoke();
+            }
+        }
+
+        [SerializeField]
+        private GameplayInteractableAttribs gameplayInteractableAttribs;
+    }
+}

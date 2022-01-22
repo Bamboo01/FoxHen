@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDist: 1
-  MenuCD: 0
+  menuCD: 0
 --- !u!114 &640973897607123790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4512834194300574379}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: onUseItem
+        m_TargetAssemblyTypeName: FoxHen.PlayerMovement, Assembly-CSharp
+        m_MethodName: OnUseItem
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -187,8 +187,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4512834194300574379}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: onMoveInput
+        m_TargetAssemblyTypeName: FoxHen.PlayerMovement, Assembly-CSharp
+        m_MethodName: OnMoveInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -201,7 +201,7 @@ MonoBehaviour:
     m_ActionId: 57045f66-fa2f-4a35-9773-0f5320e64234
     m_ActionName: Player1_Keyboard/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player1_Keyboard
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
