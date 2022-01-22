@@ -13,6 +13,8 @@ namespace FoxHen {
             [SerializeField]
             private Transform playerTransform;
 
+            private float savedSign = 1.0f;
+
             private void Start() {
                 //c# delegates
                 //note to rmb to generate class from input asset UI
@@ -28,8 +30,13 @@ namespace FoxHen {
                 _ = Observable.EveryUpdate()
                     .Subscribe(_ => {
                         playerTransform.position += new Vector3(moveInputValue.x, moveInputValue.y, 0) * moveDist * Time.deltaTime;
+
+                        if(!Mathf.Approximately(0.0f, moveInputValue.x)) {
+                            savedSign = Mathf.Sign(moveInputValue.x);
+                        }
+
                         playerTransform.localScale = new Vector3(
-                            Mathf.Abs(playerTransform.localScale.x) * Mathf.Sign(moveInputValue.x),
+                            Mathf.Abs(playerTransform.localScale.x) * savedSign,
                             playerTransform.localScale.y,
                             playerTransform.localScale.z
                         );
