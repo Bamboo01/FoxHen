@@ -1,42 +1,43 @@
-using System;
-using System.Collections.Generic;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace FoxHen {
     internal abstract class AbstractTrap: MonoBehaviour {
-        public virtual void OnTrigger() {
-            gameObject.SetActive(false);
-        }
+        internal delegate void TriggerDelegate();
 
-        protected virtual void Awake() {
-            //onTriggerObservable = Observable.Create<Unit>(observer => {
-            //    observer.OnNext();
-            //    return default;
-            //});
-        }
+        internal event TriggerDelegate triggerDelegate;
 
-        internal void AddAffectableGameObj(object owner, GameObject gameObj) {
-            if(!affectableDict.ContainsKey(owner)) {
-                affectableDict.Add(owner, new List<GameObject>());
+        protected void Awake() {
+            trapAttribs.currLifetime = trapAttribs.maxLifetime;
+
+            _ = trapAttribs.ObserveEveryValueChanged(myTrapAttribs => myTrapAttribs.currLifetime)
+                .Where(lifetime => lifetime <= 0.0f)
+                .Subscribe(_ => {
+                    gameObject.SetActive(false);
+                });
+
+            if(trapAttribs.shldLifetimeDecreaseOverTime) {
+                _ = this.UpdateAsObservable()
+                    .Subscribe(_ => {
+                        trapAttribs.currLifetime -= Time.deltaTime;
+                    });
             }
 
-            affectableDict[owner].Add(gameObj);
+            AwakeFunc();
         }
 
-        internal void RemoveAffectableGameObj(object owner, GameObject gameObj) {
-            if(!affectableDict.ContainsKey(owner)) {
-                return;
+        protected virtual void AwakeFunc() {
+        }
+
+        protected void OnTriggerEnter2D(Collider2D other) {
+            if((trapAttribs.layerMask.value & (1 << other.gameObject.layer)) != 0) {
+                trapAttribs.currLifetime = 0.0f;
+                triggerDelegate?.Invoke();
             }
-
-            _ = affectableDict[owner].Remove(gameObj);
         }
-
-        protected internal IObservable<Unit> onTriggerObservable;
 
         [SerializeField]
         private TrapAttribs trapAttribs;
-
-        private Dictionary<object, List<GameObject>> affectableDict;
     }
 }
