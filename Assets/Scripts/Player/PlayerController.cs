@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 namespace FoxHen
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
-        public float moveDist;
+        public PlayerAttributes playerAttrib;
         public float menuCD;
         private GameObject player;
         private Vector2 moveInputValue;
@@ -43,7 +43,7 @@ namespace FoxHen
 
         private void TransformUpdate()
         {
-            player.transform.position += new Vector3(moveInputValue.x, moveInputValue.y, 0) * moveDist * Time.deltaTime;
+            player.transform.position += new Vector3(moveInputValue.x, moveInputValue.y, 0) * playerAttrib.moveSpeed * Time.deltaTime;
         }
 
         #region MainMenu
@@ -89,11 +89,6 @@ namespace FoxHen
         public void ResetMovementInput(InputAction.CallbackContext context)
         {
             moveInputValue = Vector2.zero;
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            
         }
 
         #endregion

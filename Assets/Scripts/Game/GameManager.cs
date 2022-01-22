@@ -35,12 +35,6 @@ public class GameManager : Singleton<GameManager>
         players = new List<GameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PlayerEnter(PlayerInput input)
     {
         players.Add(input.gameObject);
