@@ -7,6 +7,7 @@ namespace FoxHen {
         internal delegate void TriggerDelegate(Collider2D _);
 
         internal event TriggerDelegate triggerDelegate;
+        public GameObject self = null;
 
         protected void Awake() {
             gameplayInteractableAttribs.currLifetime = gameplayInteractableAttribs.maxLifetime;
@@ -35,6 +36,11 @@ namespace FoxHen {
         }
 
         protected void OnTriggerEnter2D(Collider2D other) {
+            if(other.gameObject == self)
+            {
+                return;
+            }
+
             if((gameplayInteractableAttribs.layerMask.value & (1 << other.gameObject.layer)) != 0) {
                 gameplayInteractableAttribs.currLifetime = 0.0f;
                 triggerDelegate?.Invoke(other);

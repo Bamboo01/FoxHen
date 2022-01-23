@@ -158,7 +158,8 @@ namespace FoxHen {
             {
                 case ItemType.bear_trap:
                     {
-                        Instantiate(bear_trap_prefab, transform.position + new Vector3(instantiate_pos.x, instantiate_pos.y, 0), Quaternion.identity);
+                        GameObject trap = Instantiate(bear_trap_prefab, transform.position + new Vector3(instantiate_pos.x, instantiate_pos.y, 0), Quaternion.identity);
+                        trap.GetComponent<AbstractGameplayInteractable>().self = gameObject;
                         break;
                     }
                 case ItemType.glue_trap:
