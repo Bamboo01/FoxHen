@@ -98,9 +98,6 @@ namespace FoxHen
 
             DoStartingTweenAnimation();
 
-            activeLevel = levels[0];
-            activeLevel.SetActive(true);
-
             // Shuffle
             foreach (var level in levels)
             {
@@ -198,6 +195,9 @@ namespace FoxHen
                     SceneManager.LoadScene("LobbyScene");
                 });
             });
+
+            activeLevel = levels[0];
+            activeLevel.SetActive(true);
         }
 
         public void OnPlayerTouchedByFox(IEventRequestInfo info)
@@ -245,13 +245,13 @@ namespace FoxHen
                             {
                                 p.gameObject.SetActive(true);
                                 EventManager.Instance.Publish("PlayerSpawned", p.GetComponent<PlayerPositionsHolder>());
-                                StartCoroutine(BeginGameActions());
                                 var controller = p.GetComponent<PlayerController>();
                                 if (controller.playerID <= 4)
                                     playerUIs[controller.playerID].gameObject.SetActive(true);
 
                                 TargetGroupCameraManager.Instance.TurnOnTargetGroup();
                             }
+                            StartCoroutine(BeginGameActions());
                             subtitleTransform.DOScale(0, 1.0f).OnComplete(() =>
                             {
                                 subtitleTransform.gameObject.SetActive(false);

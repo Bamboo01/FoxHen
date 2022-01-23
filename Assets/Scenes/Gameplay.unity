@@ -3104,6 +3104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CabinLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 9553494265441936, guid: 9ac0d31d3bfb5e94f822fbd5852df734, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9553494265441939, guid: 9ac0d31d3bfb5e94f822fbd5852df734, type: 3}
       propertyPath: m_RootOrder
       value: 2

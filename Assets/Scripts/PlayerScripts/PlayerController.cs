@@ -19,9 +19,11 @@ namespace FoxHen
         [SerializeField] public PlayerData playerData { get; private set; }
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private Rigidbody2D rigidbody;
+        [SerializeField] private PlayerInput playerInput;
 
         public int playerID { get; private set;}
         public bool isFox { set; get; }
+        private string controlScheme;
 
         void Awake()
         {
@@ -72,6 +74,12 @@ namespace FoxHen
             }
         }
 
+        void OnEnable()
+        {
+            if (controlScheme != null)
+                playerInput.SwitchCurrentControlScheme(controlScheme);
+        }
+
         private void Start()
         {
             //c# delegates
@@ -89,6 +97,7 @@ namespace FoxHen
             playerData = GetComponent<PlayerData>();
             playerInventory = GetComponent<PlayerInventory>();
             rigidbody = GetComponent<Rigidbody2D>();
+            DontDestroyOnLoad(transform.parent);
 
             TurnIntoChicken();
         }

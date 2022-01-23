@@ -52,7 +52,7 @@ namespace FoxHen
                             indicatorColor = Color.blue;
                             break;
                     }
-                    newPlayer.GetComponent<PlayerController>().playerIndicatorSprite.color = indicatorColor;
+                    newPlayer.GetComponentInChildren<PlayerController>().playerIndicatorSprite.color = indicatorColor;
                     break;
                 }
                 ++playerNum;
