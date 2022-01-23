@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 1757108075}
   - component: {fileID: 1757108076}
   m_Layer: 0
-  m_Name: PlayThemeOnStart
+  m_Name: PlayReadyUpOnStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a42fa59143c1948bbd355375354174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playPauseAudio: {fileID: 11400000, guid: 786be0b2c9efc9e4087d764b16cd40ca, type: 2}
+  playPauseAudio: {fileID: 11400000, guid: 7459fcba176941449b2dd0b255178279, type: 2}
 --- !u!4 &1760709353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7771460485561441174, guid: 3992f7ab4c7a7de4588feb0f6982bd68, type: 3}

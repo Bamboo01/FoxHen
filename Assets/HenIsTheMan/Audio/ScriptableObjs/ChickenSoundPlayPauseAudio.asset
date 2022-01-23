@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12dcc8b6191b9b24899c5fc0f50e53a2, type: 3}
-  m_Name: ChickenPlayPauseAudio
+  m_Name: ChickenSoundPlayPauseAudio
   m_EditorClassIdentifier: 
   myName: Chicken
