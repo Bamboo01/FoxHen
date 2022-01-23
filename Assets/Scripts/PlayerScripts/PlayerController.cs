@@ -88,6 +88,8 @@ namespace FoxHen
             playerData = GetComponent<PlayerData>();
             playerInventory = GetComponent<PlayerInventory>();
             rigidbody = GetComponent<Rigidbody2D>();
+
+            TurnIntoChicken();
         }
 
         private void Update()

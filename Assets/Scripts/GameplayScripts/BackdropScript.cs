@@ -9,6 +9,7 @@ namespace FoxHen
         [SerializeField] PolygonCollider2D cameraConfiner;
         [SerializeField] SpriteRenderer spriteRenderer;
         [SerializeField] Vector2 outOfBoundsThreshold;
+        [SerializeField] public SpawnpointManager spawnManager;
 
         void Start()
         {

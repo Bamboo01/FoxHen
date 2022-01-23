@@ -17,7 +17,7 @@ public class PlayerAnimator : MonoBehaviour
         {
             _isChicken = value;
             playerAnimator.runtimeAnimatorController = value ? chickenAnimator : foxAnimator;
-            transform.localScale = value ? new Vector3(1, 1, 1) : new Vector3(1.5f, 1.5f, 1.5f);
+            transform.localScale = value ? new Vector3(0.6f, 0.6f, 0.6f) : new Vector3(1.0f, 1.0f, 1.0f);
         }
         get => _isChicken;
     }

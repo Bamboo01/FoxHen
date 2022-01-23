@@ -6,12 +6,11 @@ using Bamboo.Events;
 
 namespace FoxHen
 {
-    public class SpawnpointManager : Singleton<SpawnpointManager>
+    public class SpawnpointManager : MonoBehaviour
     {
         List<Transform> spawnPoints = new List<Transform>();
-        override protected void OnAwake()
+        protected void Awake()
         {
-            _persistent = false;
             EventManager.Instance.Listen("PlayerSpawned", OnPlayerSpawned);
             foreach (Transform child in transform)
             {

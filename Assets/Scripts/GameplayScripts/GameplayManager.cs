@@ -106,8 +106,9 @@ namespace FoxHen
                 gameEvents.Add(() =>
                 {
                     activeLevel.SetActive(false);
-                    levels[UnityEngine.Random.Range(0, levels.Count)].SetActive(true);
-                    activeLevel = levels[UnityEngine.Random.Range(0, levels.Count)];
+                    int index = UnityEngine.Random.Range(0, levels.Count);
+                    activeLevel = levels[index];
+                    activeLevel.SetActive(true);
 
                     subtitleTransform.gameObject.SetActive(true);
                     subtitleText.text = "Let's spice up the level!";
@@ -181,6 +182,10 @@ namespace FoxHen
                     {
                         subtitleTransform.gameObject.SetActive(false);
                     });
+                    foreach(var a in players)
+                    {
+                        Destroy(a.gameObject);
+                    }
                     SceneManager.LoadScene("LobbyScene");
                 });
             });
@@ -238,6 +243,8 @@ namespace FoxHen
                                 var controller = p.GetComponent<PlayerController>();
                                 if (controller.playerID <= 4)
                                     playerUIs[controller.playerID].gameObject.SetActive(true);
+
+                                TargetGroupCameraManager.Instance.TurnOnTargetGroup();
                             }
                             subtitleTransform.DOScale(0, 1.0f).OnComplete(() =>
                             {
@@ -253,7 +260,7 @@ namespace FoxHen
         {
             yield return new WaitForSeconds(1.0f);
             player.gameObject.SetActive(true);
-            player.transform.position = SpawnpointManager.Instance.GetSpawnPositionRandom();
+            player.transform.position = activeLevel.GetComponent<BackdropScript>().spawnManager.GetSpawnPositionRandom();
         }
 
         IEnumerator BeginGameActions()

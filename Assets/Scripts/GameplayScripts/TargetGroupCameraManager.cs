@@ -13,17 +13,23 @@ namespace FoxHen
         [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
         public bool TargetGroupOn;
 
+        protected override void OnAwake()
+        {
+            _persistent = false;
+            base.OnAwake();
+        }
+
         void Start()
         {
             EventManager.Instance.Listen("PlayerSpawned", OnPlayerSpawned);
             cinemachineTargetGroup = GetComponent<CinemachineTargetGroup>();
 
-            PlayerPositionsHolder[] seeThroughPlayers = FindObjectsOfType<PlayerPositionsHolder>();
-            foreach (var p in seeThroughPlayers)
-            {
-                float radius = p.spriteRenderer.size.x > p.spriteRenderer.size.y ? p.spriteRenderer.size.x : p.spriteRenderer.size.y;
-                cinemachineTargetGroup.AddMember(p.playerSpriteTransform, 1.0f, radius);
-            }
+            //PlayerPositionsHolder[] seeThroughPlayers = FindObjectsOfType<PlayerPositionsHolder>();
+            //foreach (var p in seeThroughPlayers)
+            //{
+            //    float radius = p.spriteRenderer.size.x > p.spriteRenderer.size.y ? p.spriteRenderer.size.x : p.spriteRenderer.size.y;
+            //    cinemachineTargetGroup.AddMember(p.playerSpriteTransform, 1.0f, radius);
+            //}
 
             TurnOffTargetGroup(99999);
         }
