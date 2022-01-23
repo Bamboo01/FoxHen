@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace FoxHen {
-    [System.Flags]
+    [Flags]
     public enum Status : int {
         none = 0,
         slowed = 1 << 0,
