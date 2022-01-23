@@ -98,6 +98,8 @@ namespace FoxHen
 
             DoStartingTweenAnimation();
 
+            activeLevel = levels[0];
+            activeLevel.SetActive(true);
 
             // Shuffle
             foreach (var level in levels)
@@ -105,10 +107,17 @@ namespace FoxHen
                 level.SetActive(false);
                 gameEvents.Add(() =>
                 {
-                    activeLevel.SetActive(false);
-                    int index = UnityEngine.Random.Range(0, levels.Count);
-                    activeLevel = levels[index];
-                    activeLevel.SetActive(true);
+                    while(true)
+                    {
+                        int index = UnityEngine.Random.Range(0, levels.Count);
+                        if (activeLevel != levels[index])
+                        {
+                            activeLevel.SetActive(false);
+                            activeLevel = levels[index];
+                            levels[index].SetActive(true);
+                            break;
+                        }
+                    }
 
                     subtitleTransform.gameObject.SetActive(true);
                     subtitleText.text = "Let's spice up the level!";
@@ -189,9 +198,6 @@ namespace FoxHen
                     SceneManager.LoadScene("LobbyScene");
                 });
             });
-
-            activeLevel = levels[0];
-            activeLevel.SetActive(true);
         }
 
         public void OnPlayerTouchedByFox(IEventRequestInfo info)
