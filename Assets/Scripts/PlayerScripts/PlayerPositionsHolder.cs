@@ -19,7 +19,7 @@ namespace FoxHen
 
         void Start()
         {
-            EventManager.Instance.Publish("PlayerSpawned", this);
+            //EventManager.Instance.Publish("PlayerSpawned", this);
         }
     }
 }

@@ -79,13 +79,13 @@ namespace FoxHen {
                     return;
                 }
 
-                if ((status & currStatus) == currStatus)
+                if (statusTime[currStatus] > statusDuration[currStatus])
                 {
-                    if (statusTime[currStatus] > statusDuration[currStatus])
-                    {
-                        StopStatus(currStatus);
-                    }
-                    else
+                    StopStatus(currStatus);
+                }
+                else
+                {
+                    if ((status & currStatus) == currStatus)
                     {
                         statusTime[currStatus] += Time.deltaTime;
                         statusPerformedCallback[currStatus]?.Invoke(currStatus);
@@ -94,26 +94,23 @@ namespace FoxHen {
             }
         }
 
-        private void StopStatus(Status _status)
+        public void StopStatus(Status _status)
         {
-            status &= ~_status;
-            statusTime[_status] = 0.0f;
-            statusCancelledCallback[_status]?.Invoke(_status);
+            if ((status & _status) == _status)
+            {
+                status &= ~_status;
+                statusTime[_status] = 0.0f;
+                statusCancelledCallback[_status]?.Invoke(_status);
+            }
         }
 
         public void AddStatus(Status _status)
         {
-            if ((status & _status) == _status)
-            {
-                StopStatus(_status);
-                status |= _status;
-            }
-            else
-            {
-                status |= _status;
-                statusTime[_status] = 0.0f;
-            }
-            statusStartedCallback[_status]?.Invoke(_status);
+            StopStatus(_status);
+            status |= _status;
+            statusTime[_status] = 0.0f;
+            statusStartedCallback[_status] += (stat) => { Debug.Log("hello"); };
+            statusStartedCallback[_status]?.Invoke(_status);            
         }
     }
 }
