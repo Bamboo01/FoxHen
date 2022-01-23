@@ -385,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2611535494941451057, guid: 66b4cd266e4446d47b06c761ed5f00c1, type: 3}
       propertyPath: m_Name
-      value: MysteryBoxPrefab
+      value: MysteryBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66b4cd266e4446d47b06c761ed5f00c1, type: 3}
