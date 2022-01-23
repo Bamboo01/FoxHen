@@ -21,7 +21,7 @@ namespace FoxHen
         [SerializeField] private Rigidbody2D rigidbody;
 
         public int playerID { get; private set;}
-        public bool isFox { private set; get; }
+        public bool isFox { set; get; }
 
         void Awake()
         {

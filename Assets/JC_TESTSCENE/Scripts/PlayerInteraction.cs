@@ -9,6 +9,9 @@ namespace FoxHen {
         [SerializeField] private PlayerData playerData;
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private Rigidbody2D rigidbody;
+        [SerializeField] private GameObject bubble;
+        [SerializeField] private GameObject speedup;
+        [SerializeField] private GameObject slowdown;
 
         public GameObject bear_trap_prefab;
         public GameObject glue_trap_prefab;
@@ -50,13 +53,14 @@ namespace FoxHen {
         private void SlowedStartCallback(Status _status)
         {
             playerData.eventStack.Add(SlowDown);
+            slowdown.SetActive(true);
+
         }
 
         private void SlowedStopCallback(Status _status)
         {
-            Debug.Log(playerData.eventStack.Count);
             playerData.eventStack.Remove(SlowDown);
-            Debug.Log(playerData.eventStack.Count);
+            slowdown.SetActive(false);
         }
 
         private void StunnedCallback(Status _status)
@@ -68,16 +72,19 @@ namespace FoxHen {
         private void HastenedStartedCallback(Status _status)
         {
             playerData.eventStack.Add(MoveFast);
+            speedup.SetActive(true);
         }
 
         private void InvulnerableCallback(Status _status)
         {
             playerData.isInvulnerable = true;
+            bubble.SetActive(true);
         } 
         
         private void VulnerableCallback(Status _status)
         {
             playerData.isInvulnerable = false;
+            bubble.SetActive(false);
         }
 
         private void UnstunnedCallback(Status _status)
@@ -89,6 +96,7 @@ namespace FoxHen {
         private void StopHasteCallback(Status _status)
         {
             playerData.eventStack.Remove(MoveFast);
+            speedup.SetActive(false);
         }
 
         private void StartConfusedCallback(Status _status)

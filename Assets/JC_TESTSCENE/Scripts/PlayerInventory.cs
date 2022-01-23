@@ -49,13 +49,19 @@ namespace FoxHen
             return false;
         }
 
-        public bool AddRandomItem()
+        public bool AddRandomItem(bool type)
         {
             if (storedItem != ItemType.none)
             {
                 //ifelse henfox
-                storedItem = henItemTypeList[UnityEngine.Random.Range((int)ItemType.none, henItemTypeList.Count)];
-                storedItem = foxItemTypeList[UnityEngine.Random.Range((int)ItemType.none, foxItemTypeList.Count)];
+                if (type)
+                {
+                    storedItem = foxItemTypeList[UnityEngine.Random.Range((int)ItemType.none, foxItemTypeList.Count)];
+                }
+                else
+                {
+                    storedItem = henItemTypeList[UnityEngine.Random.Range((int)ItemType.none, henItemTypeList.Count)];
+                }
                 UseItem();
                 return true;
             }

@@ -14,7 +14,7 @@ namespace FoxHen
         private void Start()
         {
             respawnTime = 0.0f;
-            isEnabled = false;
+            isEnabled = true;
         }
 
         private void Update()
@@ -29,6 +29,7 @@ namespace FoxHen
             if(respawnTime > respawnDuration)
             {
                 //spawn mystery box
+                Instantiate(mysterybox, transform);
             }
         }
     }
