@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerSlot : MonoBehaviour
+
+namespace FoxHen
 {
-    public void playerAssigned(int number)
+    public class PlayerSlot : MonoBehaviour
     {
-        GetComponentInChildren<Text>().text = $"Player {number}!";
-        //gameObject.SetActive(false);
+        public void playerAssigned()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

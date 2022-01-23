@@ -56,22 +56,6 @@ namespace FoxHen
             rigidbody.velocity = new Vector3(moveInputValue.x, moveInputValue.y, 0) * playerAttrib.moveSpeed;
         }
 
-        #region MainMenu
-
-        private void MainMenuUpdate()
-        {
-            bool Up = false;
-            if (Mathf.Abs(moveInputValue.y) > 0.85f)
-            {
-                if (moveInputValue.y > 0)
-                    Up = true;
-
-                MainMenuManagerPLUS.Instance.playerMenuInput(Up, gameObject);
-            }
-        }
-
-        #endregion
-
         #region InputCallbacks
 
         public void OnUseItem(InputAction.CallbackContext context)

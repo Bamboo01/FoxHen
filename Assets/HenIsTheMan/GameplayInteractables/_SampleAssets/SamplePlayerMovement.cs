@@ -52,19 +52,6 @@ namespace FoxHen {
                     .AddTo(this);
             }
 
-            #region MainMenu
-
-            private void MainMenuUpdate() {
-                bool Up = false;
-                if(Mathf.Abs(moveInputValue.y) > 0.85f) {
-                    if(moveInputValue.y > 0)
-                        Up = true;
-
-                    MainMenuManagerPLUS.Instance.playerMenuInput(Up, gameObject);
-                }
-            }
-
-            #endregion
 
             #region InputCallbacks
 
