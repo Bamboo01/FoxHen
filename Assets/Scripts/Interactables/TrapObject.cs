@@ -7,8 +7,8 @@ namespace FoxHen
     public class TrapObject : MonoBehaviour
     {
         [SerializeField] public Renderer renderer;
-        [SerializeField] public float minSeeThroughDistance;
-        [SerializeField] public float maxSeeThroughDistance;
+        [SerializeField] public float minSeeThroughDistance = 0.1f;
+        [SerializeField] public float maxSeeThroughDistance = 0.5f;
 
         void Start()
         {
@@ -19,8 +19,8 @@ namespace FoxHen
 
         void Update()
         {
-    #if UNITY_EDITOR //Lazy debug, can be skipped in build
             renderer.material.SetVector("_CurrPosition", transform.position);
+    #if UNITY_EDITOR //Lazy debug, can be skipped in build
             renderer.material.SetFloat("_MinDistance", minSeeThroughDistance);
             renderer.material.SetFloat("_MaxDistance", maxSeeThroughDistance);
     #endif

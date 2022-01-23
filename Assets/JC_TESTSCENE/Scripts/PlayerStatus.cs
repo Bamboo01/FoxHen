@@ -15,24 +15,18 @@ namespace FoxHen {
         total = ~0
     }
 
-    public class PlayerAttributes : MonoBehaviour
+    public class PlayerStatus : MonoBehaviour
     {
-        private delegate void StatusEventTrigger(Status s);
+        public delegate void StatusEventTrigger(Status s);
 
-        public float moveSpeed { get; private set; }
-        private float defaultMoveSpeed = 5.0f;
+        public Dictionary<Status, float> statusDuration { get; private set; }
+        public Dictionary<Status, float> statusTime { get; private set; }
+        public Dictionary<Status, StatusEventTrigger> statusStartedCallback { get; private set; }
+        public Dictionary<Status, StatusEventTrigger> statusPerformedCallback { get; private set; }
+        public Dictionary<Status, StatusEventTrigger> statusCancelledCallback { get; private set; }
 
-        public bool charType { get; private set; }
-
-        private Dictionary<Status, float> statusDuration;
-        private Dictionary<Status, float> statusTime;
-        private Dictionary<Status, StatusEventTrigger> statusStartedCallback;
-        private Dictionary<Status, StatusEventTrigger> statusPerformedCallback;
-        private Dictionary<Status, StatusEventTrigger> statusCancelledCallback;
         private List<Status> statusList;
-        private Status status;
-
-        public bool isInvulnerable { get; private set;  }
+        public Status status { get; private set; }
 
         private void Awake()
         {
@@ -52,20 +46,20 @@ namespace FoxHen {
             }
 
             statusStartedCallback = new Dictionary<Status, StatusEventTrigger>();
-            statusStartedCallback.Add(Status.invulnerable, InvulnerableCallback);
-            statusStartedCallback.Add(Status.slowed, SlowedCallback);
-            statusStartedCallback.Add(Status.stunned, StunnedCallback);
-            statusStartedCallback.Add(Status.hastened, HastenedCallback);
 
             statusPerformedCallback = new Dictionary<Status, StatusEventTrigger>();
 
             statusCancelledCallback = new Dictionary<Status, StatusEventTrigger>();
-            statusCancelledCallback.Add(Status.slowed, HastenedCallback);
-            statusCancelledCallback.Add(Status.stunned, UnstunnedCallback);
-            statusCancelledCallback.Add(Status.hastened, SlowedCallback);
-            statusCancelledCallback.Add(Status.invulnerable, VulnerableCallback);
 
-            if(statusDuration.Count < statusList.Count - 1)
+            
+            foreach (var status in statusList)
+            {
+                statusStartedCallback.Add(status, null);
+                statusPerformedCallback.Add(status, null);
+                statusCancelledCallback.Add(status, null);
+            }
+            
+            if (statusDuration.Count < statusList.Count - 1)
             {
                 Debug.LogError("PlayerAttributes.cs: status duration != status count");
             }
@@ -73,44 +67,9 @@ namespace FoxHen {
 
         private void Start()
         {
-            moveSpeed = defaultMoveSpeed;
             status = Status.none;
         }
 
-        #region callbacks
-
-        private void SlowedCallback(Status _status)
-        {
-            moveSpeed *= 0.6667f;
-        }
-
-        private void StunnedCallback(Status _status)
-        {
-            moveSpeed *= 0.0f;
-        }
-
-        private void HastenedCallback(Status _status)
-        {
-            moveSpeed *= 1.5f;
-        }
-
-        private void InvulnerableCallback(Status _status)
-        {
-            isInvulnerable = true;
-        }
-
-        private void VulnerableCallback(Status _status)
-        {
-            isInvulnerable = false;
-        }
-
-        private void UnstunnedCallback(Status _status)
-        {
-            moveSpeed = defaultMoveSpeed;
-        }
-        #endregion
-
-        #region things that you will probably never change
         private void Update()
         {
             foreach (var currStatus in statusList)
@@ -129,8 +88,7 @@ namespace FoxHen {
                     else
                     {
                         statusTime[currStatus] += Time.deltaTime;
-                        if(statusPerformedCallback.ContainsKey(currStatus))
-                            statusPerformedCallback[currStatus]?.Invoke(currStatus);
+                        statusPerformedCallback[currStatus]?.Invoke(currStatus);
                     }
                 }
             }
@@ -140,8 +98,7 @@ namespace FoxHen {
         {
             status &= ~_status;
             statusTime[_status] = 0.0f;
-            if(statusCancelledCallback.ContainsKey(_status))
-                statusCancelledCallback[_status]?.Invoke(_status);
+            statusCancelledCallback[_status]?.Invoke(_status);
         }
 
         public void AddStatus(Status _status)
@@ -156,11 +113,7 @@ namespace FoxHen {
                 status |= _status;
                 statusTime[_status] = 0.0f;
             }
-            if (statusStartedCallback.ContainsKey(_status))
-                statusStartedCallback[_status]?.Invoke(_status);
+            statusStartedCallback[_status]?.Invoke(_status);
         }
-        #endregion
     }
-
-
 }

@@ -10,8 +10,8 @@ namespace FoxHen
     {
         [SerializeField] PlayerAnimator playerAnimator;
         [SerializeField] SpriteRenderer playerSprite;
-        public SpriteRenderer playerIndicatorSprite;
-        [SerializeField] public PlayerAttributes playerAttrib { get; private set; }
+        [SerializeField] public PlayerStatus playerStatus { get; private set; }
+        [SerializeField] public PlayerData playerData { get; private set; }
 
         private GameObject player;
         private Vector2 moveInputValue;
@@ -33,7 +33,8 @@ namespace FoxHen
             DontDestroyOnLoad(gameObject);
             player = gameObject;
             moveInputValue = Vector2.zero;
-            playerAttrib = GetComponent<PlayerAttributes>();
+            playerStatus = GetComponent<PlayerStatus>();
+            playerData = GetComponent<PlayerData>();
             playerInventory = GetComponent<PlayerInventory>();
             playerInventory.activateItemDelegate += ActivateItem;
             rigidbody = GetComponent<Rigidbody2D>();
@@ -54,7 +55,7 @@ namespace FoxHen
 
         private void TransformUpdate()
         {
-            rigidbody.velocity = new Vector3(moveInputValue.x, moveInputValue.y, 0) * playerAttrib.moveSpeed;
+            rigidbody.velocity = new Vector3(moveInputValue.x, moveInputValue.y, 0) * playerData.moveSpeed;
         }
 
         #region InputCallbacks

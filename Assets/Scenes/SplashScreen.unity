@@ -984,6 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d927e212396df24b831f41f844bddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineVirtualCamera: {fileID: 0}
 --- !u!114 &398150692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6692,6 +6693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d927e212396df24b831f41f844bddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineVirtualCamera: {fileID: 3907578121559890508}
 --- !u!1 &3907578122008019350
 GameObject:
   m_ObjectHideFlags: 0
@@ -6943,7 +6945,7 @@ PolygonCollider2D:
       - {x: -38.4, y: -21.6}
 --- !u!114 &3907578122332985536
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6955,7 +6957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!1 &3907578122332985549
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6973,7 +6975,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &3907578122332985550
 Transform:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6987,7 +6989,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3907578122332985551
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
