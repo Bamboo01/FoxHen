@@ -2481,6 +2481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7704968b7c4319944a6dd72d831a6f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
 --- !u!1 &1402836311
 GameObject:
   m_ObjectHideFlags: 3
@@ -3492,6 +3493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d927e212396df24b831f41f844bddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
   cinemachineVirtualCamera: {fileID: 0}
 --- !u!114 &1879316915
 MonoBehaviour:
@@ -3887,7 +3889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9855284044a493b40a41c35a03fd78ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 1
+  _persistent: 0
   playerSlots:
   - {fileID: 894402497}
   - {fileID: 28196664}
@@ -5092,6 +5094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d927e212396df24b831f41f844bddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
   cinemachineVirtualCamera: {fileID: 3907578121126715252}
 --- !u!1 &3907578121126715251
 GameObject:

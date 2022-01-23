@@ -6,11 +6,12 @@ using Bamboo.Events;
 
 namespace FoxHen
 {
-    public class SpawnpointManager : MonoBehaviour
+    public class SpawnpointManager : Singleton<SpawnpointManager>
     {
         List<Transform> spawnPoints = new List<Transform>();
-        void Awake()
+        override protected void OnAwake()
         {
+            _persistent = false;
             EventManager.Instance.Listen("PlayerSpawned", OnPlayerSpawned);
             foreach (Transform child in transform)
             {
@@ -27,6 +28,11 @@ namespace FoxHen
         {
             // TODO: play particles when they spawn
             ((info as EventRequestInfo).sender as PlayerPositionsHolder).transform.position = spawnPoints[Random.Range(0, spawnPoints.Count)].position;
+        }
+
+        public Vector3 GetSpawnPositionRandom()
+        {
+            return spawnPoints[Random.Range(0, spawnPoints.Count)].position;
         }
     }
 }

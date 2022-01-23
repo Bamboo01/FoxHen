@@ -1029,6 +1029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7704968b7c4319944a6dd72d831a6f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
 --- !u!4 &799566073
 Transform:
   m_ObjectHideFlags: 0
@@ -1175,6 +1176,7 @@ MonoBehaviour:
   playerFourUI: {fileID: 62759676}
   levels:
   - {fileID: 3548528775550832047}
+  deadPrefab: {fileID: 1763554507866802339, guid: 4efe5c275cf391a42aef2efef2d15f1c, type: 3}
 --- !u!1 &829038402
 GameObject:
   m_ObjectHideFlags: 0
