@@ -670,7 +670,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3480216203015256605, guid: 3154cbf31569b5d46a582edeb7295b7e, type: 3}
   m_PrefabInstance: {fileID: 1880572034}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1580659735
+--- !u!21 &1507822788
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Shapes2D Material
   m_Shader: {fileID: 4800000, guid: 44f74e30da9814584b2fdcdbe799e51a, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA FILL_SOLID_COLOR SIMPLE_ELLIPSE _EMISSION
+  m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -738,10 +738,10 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Shapes2D_DstAlpha: 1
-    - _Shapes2D_DstBlend: 10
-    - _Shapes2D_SrcAlpha: 1
-    - _Shapes2D_SrcBlend: 1
+    - _Shapes2D_DstAlpha: 0
+    - _Shapes2D_DstBlend: 0
+    - _Shapes2D_SrcAlpha: 0
+    - _Shapes2D_SrcBlend: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -911,7 +911,7 @@ PrefabInstance:
     - target: {fileID: 8304733766514832214, guid: fee25b49bc2bc504cb8c3f0bbc51be06, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1580659735}
+      objectReference: {fileID: 1507822788}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fee25b49bc2bc504cb8c3f0bbc51be06, type: 3}
 --- !u!1001 &1843832841
