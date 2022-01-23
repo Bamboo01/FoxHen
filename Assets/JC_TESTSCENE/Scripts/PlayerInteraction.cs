@@ -25,7 +25,7 @@ namespace FoxHen {
 
             playerStatus.statusPerformedCallback[Status.slowed] += InvulnerableCallback;
 
-            playerStatus.statusTime[Status.slowed] = 5.0f;
+            playerStatus.statusCancelledCallback[Status.slowed] += HastenedCallback;
 
 
         }
