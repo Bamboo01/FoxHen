@@ -304,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplayInteractableAttribs: {fileID: 11400000, guid: 28323a7f1508dea4db15668e45b2c686, type: 2}
   bloodParticleSystemControl: {fileID: 65815019}
---- !u!21 &674094127
+--- !u!21 &524382044
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -989,7 +989,7 @@ PrefabInstance:
     - target: {fileID: 8304733766514832214, guid: fee25b49bc2bc504cb8c3f0bbc51be06, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 674094127}
+      objectReference: {fileID: 524382044}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fee25b49bc2bc504cb8c3f0bbc51be06, type: 3}
 --- !u!4 &1838243778 stripped

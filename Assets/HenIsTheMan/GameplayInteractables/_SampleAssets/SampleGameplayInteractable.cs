@@ -6,9 +6,11 @@ namespace FoxHen {
         private BloodParticleSystemControl bloodParticleSystemControl;
 
         private void OnEnable() {
-            triggerDelegate += _ => {
-                bloodParticleSystemControl.Emit();
-            };
+            if(bloodParticleSystemControl != null) {
+                triggerDelegate += _ => {
+                    bloodParticleSystemControl.Emit();
+                };
+            }
         }
     }
 }
