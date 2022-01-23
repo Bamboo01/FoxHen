@@ -154,12 +154,12 @@ SpriteRenderer:
   m_SortingLayerID: -517236233
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c7a93f878e6fca4499cb3e64cba386fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72821e199b5df4c4293cc024647ceb70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 7.5, y: 3.8}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -232,6 +232,8 @@ MonoBehaviour:
   playerAnimator: {fileID: 5005403170638003524}
   playerSprite: {fileID: 3080008931686567403}
   playerIndicatorSprite: {fileID: 7120620417150415630}
+  playerInventory: {fileID: 0}
+  rigidbody: {fileID: 0}
 --- !u!114 &640973897607123790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +321,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultMoveSpeed: 5
+  moveInputValue: {x: 0, y: 0}
+  lastMoveDirection: {x: 0, y: 0}
+  currItem: 0
 --- !u!114 &6692155606260108167
 MonoBehaviour:
   m_ObjectHideFlags: 0

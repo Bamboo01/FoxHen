@@ -26,8 +26,8 @@ namespace FoxHen
         public delegate void ActivateItem(ItemType item);
         public ActivateItem activateItemDelegate;
 
-        private List<ItemType> henItemTypeList;
-        private List<ItemType> foxItemTypeList;
+        private List<ItemType> henItemTypeList = new List<ItemType>();
+        private List<ItemType> foxItemTypeList = new List<ItemType>();
 
         private void Awake()
         {
