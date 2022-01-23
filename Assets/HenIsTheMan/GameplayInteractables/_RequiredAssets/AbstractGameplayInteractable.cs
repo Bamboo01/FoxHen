@@ -16,7 +16,7 @@ namespace FoxHen {
             )
                 .Where(lifetime => lifetime <= 0.0f)
                 .Subscribe(_ => {
-                    gameObject.SetActive(false);
+                    Destroy(gameObject);
                 })
                 .AddTo(this);
 

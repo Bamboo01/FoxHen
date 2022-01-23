@@ -33,6 +33,7 @@ namespace FoxHen
         {
             storedItem = ItemType.none;
             henItemTypeList = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList();
+            foxItemTypeList = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList();
             henItemTypeList.Remove(ItemType.berries);
             foxItemTypeList.Remove(ItemType.chicken_shield);
             foxItemTypeList.Remove(ItemType.chicken_flash);
@@ -41,7 +42,7 @@ namespace FoxHen
 
         public bool AddItem(ItemType item)
         {
-            if(storedItem != ItemType.none)
+            if(storedItem == ItemType.none)
             {
                 storedItem = item;
                 return true;
@@ -51,7 +52,7 @@ namespace FoxHen
 
         public bool AddRandomItem(bool type)
         {
-            if (storedItem != ItemType.none)
+            if (storedItem == ItemType.none)
             {
                 //ifelse henfox
                 if (type)
@@ -70,6 +71,7 @@ namespace FoxHen
 
         public void UseItem()
         {
+            Debug.Log(storedItem.ToString());
             activateItemDelegate?.Invoke(storedItem);
             storedItem = ItemType.none;
         }

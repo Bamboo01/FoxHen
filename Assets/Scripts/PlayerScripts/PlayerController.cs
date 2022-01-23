@@ -35,6 +35,7 @@ namespace FoxHen
             {
                 currentFox.TurnIntoChicken();
             }
+            gameObject.layer = LayerMask.NameToLayer("Fox");
             currentFox = this;
             isFox = true;
             playerAnimator.isChicken = false;
@@ -46,7 +47,7 @@ namespace FoxHen
             {
                 currentFox = null;
             }
-
+            gameObject.layer = LayerMask.NameToLayer("Hen");
             isFox = false;
             playerAnimator.isChicken = true;
         }

@@ -7,6 +7,7 @@ namespace FoxHen
     public class ItemboxSpawner : MonoBehaviour
     {
         public GameObject mysterybox;
+        private GameObject spawnedbox;
         public bool isEnabled;
         float respawnTime;
         const float respawnDuration = 5.0f;
@@ -22,14 +23,15 @@ namespace FoxHen
             if (!isEnabled)
                 return;
 
-            if (mysterybox)
+            if (!mysterybox || spawnedbox)
                 return;
 
             respawnTime += Time.deltaTime;
             if(respawnTime > respawnDuration)
             {
                 //spawn mystery box
-                Instantiate(mysterybox, transform);
+                respawnTime = 0.0f;
+                spawnedbox = Instantiate(mysterybox, transform);
             }
         }
     }
