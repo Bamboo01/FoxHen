@@ -17,6 +17,8 @@ namespace FoxHen {
         public bool isStunned { get; set; }
         public bool isInvulnerable { get; set; }
 
+        public ItemType currItem;
+
         public delegate float EventStack(float f);
         public List<EventStack> eventStack = new List<EventStack>();
 
@@ -24,6 +26,7 @@ namespace FoxHen {
         {
             isStunned = false;
             isInvulnerable = false;
+            currItem = ItemType.none;
         }
 
         public float GetMoveSpeed()

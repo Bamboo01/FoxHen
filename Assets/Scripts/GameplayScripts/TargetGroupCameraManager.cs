@@ -25,6 +25,11 @@ namespace FoxHen
             }
         }
 
+        void OnDestroy()
+        {
+            EventManager.Instance.Close("PlayerSpawned", OnPlayerSpawned);
+        }
+
         void OnPlayerSpawned(IEventRequestInfo info)
         {
             PlayerPositionsHolder playerInfo = (info as EventRequestInfo).sender as PlayerPositionsHolder;
