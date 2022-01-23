@@ -13,6 +13,7 @@ namespace FoxHen
     public class LobbyManager : Singleton<LobbyManager>
     {
         [SerializeField] List<PlayerSlot> playerSlots;
+        [SerializeField] Text timerText;
         Dictionary<PlayerSlot, GameObject> assignedSlots;
         float timeTillGameplaySceneTransisiton;
 
@@ -45,15 +46,17 @@ namespace FoxHen
         public void AllPlayersInCoop(float deltaTime)
         {
             timeTillGameplaySceneTransisiton -= deltaTime;
+            timerText.text = timeTillGameplaySceneTransisiton.ToString("0.#");
             if (timeTillGameplaySceneTransisiton <= 0)
             {
                 SceneManager.LoadScene("Gameplay");
             }
         }
 
-        public void PlayerExitCoop()
+        public void TimerReset()
         {
             timeTillGameplaySceneTransisiton = 5f;
+            timerText.text = "";
         }
 
         public int GetPlayerCount()
