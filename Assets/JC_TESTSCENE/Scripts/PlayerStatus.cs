@@ -12,6 +12,7 @@ namespace FoxHen {
         hastened = 1 << 2,
         invulnerable = 1 << 3,
         confused = 1 << 4,
+        flashed = 1 << 5,
         total = ~0
     }
 
