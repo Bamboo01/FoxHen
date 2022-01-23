@@ -3,7 +3,7 @@ using Genesis.Wisdom;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Genesis.Creation {
+namespace FoxHen {
 	internal sealed class AudioManager: Singleton<AudioManager> {
 		#region Fields
 
@@ -69,7 +69,7 @@ namespace Genesis.Creation {
 
 		#region Unity User Callback Event Funcs
 
-		private void Awake() {
+		protected override void OnAwake() {
 			if(shldSetDefaultVols) {
 				musicVol = defaultMusicVol;
 				soundVol = defaultSoundVol;
