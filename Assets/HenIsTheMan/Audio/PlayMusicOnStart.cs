@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace FoxHen {
-	internal sealed class PlayThemeOnStart: MonoBehaviour { //Noob
+	internal sealed class PlayMusicOnStart: MonoBehaviour { //Noob
 		[SerializeField]
 		private PlayPauseAudio playPauseAudio;
 
