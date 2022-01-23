@@ -17,6 +17,9 @@ namespace FoxHen {
         public bool isStunned { get; set; }
         public bool isInvulnerable { get; set; }
 
+        public Vector2 moveInputValue;
+        public Vector2 lastMoveDirection;
+
         public ItemType currItem;
 
         public delegate float EventStack(float f);
@@ -27,6 +30,7 @@ namespace FoxHen {
             isStunned = false;
             isInvulnerable = false;
             currItem = ItemType.none;
+            moveInputValue = Vector2.zero;
         }
 
         public float GetMoveSpeed()

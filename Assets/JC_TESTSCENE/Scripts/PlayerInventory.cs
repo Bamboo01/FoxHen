@@ -26,12 +26,17 @@ namespace FoxHen
         public delegate void ActivateItem(ItemType item);
         public ActivateItem activateItemDelegate;
 
-        private List<ItemType> itemTypeList;
+        private List<ItemType> henItemTypeList;
+        private List<ItemType> foxItemTypeList;
 
         private void Awake()
         {
             storedItem = ItemType.none;
-            itemTypeList = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList();
+            henItemTypeList = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToList();
+            henItemTypeList.Remove(ItemType.berries);
+            foxItemTypeList.Remove(ItemType.chicken_shield);
+            foxItemTypeList.Remove(ItemType.chicken_flash);
+            foxItemTypeList.Remove(ItemType.chicken_feed);
         }
 
         public bool AddItem(ItemType item)
@@ -48,7 +53,9 @@ namespace FoxHen
         {
             if (storedItem != ItemType.none)
             {
-                storedItem = itemTypeList[UnityEngine.Random.Range((int)ItemType.none, itemTypeList.Count)];
+                //ifelse henfox
+                storedItem = henItemTypeList[UnityEngine.Random.Range((int)ItemType.none, henItemTypeList.Count)];
+                storedItem = foxItemTypeList[UnityEngine.Random.Range((int)ItemType.none, foxItemTypeList.Count)];
                 return true;
             }
             return false;
@@ -57,6 +64,7 @@ namespace FoxHen
         public void UseItem()
         {
             activateItemDelegate?.Invoke(storedItem);
+            storedItem = ItemType.none;
         }
     }
 }

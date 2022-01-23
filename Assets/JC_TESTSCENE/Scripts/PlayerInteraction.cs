@@ -7,13 +7,23 @@ namespace FoxHen {
     {
         [SerializeField] private PlayerStatus playerStatus;
         [SerializeField] private PlayerData playerData;
+        [SerializeField] private PlayerInventory playerInventory;
+        [SerializeField] private Rigidbody2D rigidbody;
 
-        public const float slowPercent = 0.7f;
+        public GameObject bear_trap_prefab;
+        public GameObject glue_trap_prefab;
+        public GameObject magic_mushroom_trap_prefab;
+        public GameObject snare_trap_prefab;
+
+        public Vector2 direction = Vector2.zero;
+        public const float slowPercent = 0.4f;
 
         private void Start()
         {
             playerStatus = GetComponent<PlayerStatus>();
             playerData = GetComponent<PlayerData>();
+            playerInventory = GetComponent<PlayerInventory>();
+            rigidbody = GetComponent<Rigidbody2D>();
             SetUpCallbacks();
         }
 
@@ -32,6 +42,8 @@ namespace FoxHen {
             playerStatus.statusCancelledCallback[Status.slowed] += SlowedStopCallback;
             playerStatus.statusCancelledCallback[Status.hastened] += StopHasteCallback;
             playerStatus.statusCancelledCallback[Status.confused] += StopConfusedCallback;
+
+            playerInventory.activateItemDelegate += useItem;
         }
 
         #region callbacks
@@ -117,6 +129,73 @@ namespace FoxHen {
             return moveSpeed *= -1;
         }
 
+        public void Flashed(Status _status)
+        {
+            if (playerData.moveInputValue.magnitude > Mathf.Epsilon)
+            {
+                rigidbody.position += playerData.lastMoveDirection * 5.0f;
+            }
+        }
         #endregion
+
+        public void useItem(ItemType item)
+        {
+            Vector2 instantiate_pos = playerData.lastMoveDirection * 1.0f;
+            if(instantiate_pos.magnitude < Mathf.Epsilon)
+            {
+                instantiate_pos = new Vector2(-1, 0);
+            }
+
+            switch (item)
+            {
+                case ItemType.bear_trap:
+                    {
+                        Instantiate(bear_trap_prefab, transform.position + new Vector3(instantiate_pos.x, instantiate_pos.y, 0), Quaternion.identity);
+                        break;
+                    }
+                case ItemType.glue_trap:
+                    {
+                        Instantiate(glue_trap_prefab, transform.position + new Vector3(instantiate_pos.x, instantiate_pos.y, 0), Quaternion.identity);
+                        break;
+                    }
+                case ItemType.magic_mushroom_trap:
+                    {
+                        Instantiate(magic_mushroom_trap_prefab, transform.position + new Vector3(instantiate_pos.x, instantiate_pos.y, 0), Quaternion.identity);
+                        break;
+                    }
+                case ItemType.snare_trap:
+                    {
+                        Instantiate(snare_trap_prefab, transform.position + new Vector3(instantiate_pos.x, instantiate_pos.y, 0), Quaternion.identity);
+                        break;
+                    }
+                case ItemType.chicken_feed:
+                    {
+                        playerStatus.AddStatus(Status.hastened);
+                        break;
+                    }
+                case ItemType.chicken_flash:
+                    {
+                        playerStatus.AddStatus(Status.flashed);
+                        break;
+                    }
+                case ItemType.chicken_shield:
+                    {
+                        playerStatus.AddStatus(Status.invulnerable);
+                        break;
+                    }
+                case ItemType.berries:
+                    {
+                        playerStatus.AddStatus(Status.hastened);
+                        break;
+                    }
+                case ItemType.speed:
+                    {
+                        playerStatus.AddStatus(Status.hastened);
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
     }
 }

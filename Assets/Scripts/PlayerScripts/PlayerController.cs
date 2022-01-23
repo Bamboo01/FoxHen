@@ -15,7 +15,6 @@ namespace FoxHen
         public SpriteRenderer playerIndicatorSprite;
         [SerializeField] public PlayerStatus playerStatus { get; private set; }
         [SerializeField] public PlayerData playerData { get; private set; }
-        [SerializeField] private Vector2 moveInputValue;
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private Rigidbody2D rigidbody;
 
@@ -40,11 +39,9 @@ namespace FoxHen
             //inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
 
             DontDestroyOnLoad(gameObject);
-            moveInputValue = Vector2.zero;
             playerStatus = GetComponent<PlayerStatus>();
             playerData = GetComponent<PlayerData>();
             playerInventory = GetComponent<PlayerInventory>();
-            playerInventory.activateItemDelegate += ActivateItem;
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
@@ -63,7 +60,11 @@ namespace FoxHen
 
         private void TransformUpdate()
         {
-            rigidbody.velocity = new Vector3(moveInputValue.x, moveInputValue.y, 0) * playerData.moveSpeed;
+            if(rigidbody.velocity.magnitude > Mathf.Epsilon)
+            {
+                playerData.lastMoveDirection = rigidbody.velocity.normalized;
+            }
+            rigidbody.velocity = new Vector3(playerData.moveInputValue.x, playerData.moveInputValue.y, 0) * playerData.moveSpeed;
         }
 
         #region InputCallbacks
@@ -74,26 +75,19 @@ namespace FoxHen
             {
                 playerAnimator.PickupItem();
                 playerInventory.UseItem();
-                Debug.Log("HI");
             }
         }
 
         public void OnMoveInput(InputAction.CallbackContext context)
         {
-            moveInputValue = context.ReadValue<Vector2>();
+           playerData.moveInputValue = context.ReadValue<Vector2>();
         }
 
         public void ResetMovementInput(InputAction.CallbackContext context)
         {
-            moveInputValue = Vector2.zero;
+            playerData.moveInputValue = Vector2.zero;
         }
 
         #endregion
-
-        public void ActivateItem(ItemType item)
-        {
-            Debug.Log("Activated" + item.ToString());
-        }
-
     }
 }

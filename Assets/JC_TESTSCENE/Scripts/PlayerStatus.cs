@@ -39,6 +39,8 @@ namespace FoxHen {
             statusDuration.Add(Status.stunned, 1.0f);
             statusDuration.Add(Status.hastened, 2.0f);
             statusDuration.Add(Status.invulnerable, 1.0f);
+            statusDuration.Add(Status.confused, 1.0f);
+            statusDuration.Add(Status.flashed, 0.0f);
 
             statusTime = new Dictionary<Status, float>();
             foreach (var status in statusList)
