@@ -12,7 +12,7 @@ namespace FoxHen {
                 return GetMoveSpeed();
             }
         }
-        public float defaultMoveSpeed = 10.0f;
+        public float defaultMoveSpeed = 20.0f;
 
         public bool isStunned { get; set; }
         public bool isInvulnerable { get; set; }
