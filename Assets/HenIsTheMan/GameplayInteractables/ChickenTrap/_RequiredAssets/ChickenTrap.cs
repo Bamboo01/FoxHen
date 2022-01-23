@@ -3,6 +3,11 @@ namespace FoxHen {
         private void OnEnable() {
             triggerDelegate += (other) => {
                 other.GetComponent<PlayerStatus>()?.AddStatus(Status.stunned);
+
+                BloodParticleSystemControl bloodParticleSystemControl = other.GetComponentInChildren<BloodParticleSystemControl>();
+                if(bloodParticleSystemControl != null) {
+                    bloodParticleSystemControl.Emit();
+                }
             };
         }
     }
