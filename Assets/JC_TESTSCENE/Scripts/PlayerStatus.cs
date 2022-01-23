@@ -109,7 +109,10 @@ namespace FoxHen {
             StopStatus(_status);
             status |= _status;
             statusTime[_status] = 0.0f;
+            statusStartedCallback[_status] += (stat) => { Debug.Log("hello"); };
             statusStartedCallback[_status]?.Invoke(_status);
+            Debug.Log(statusStartedCallback[_status]);
+            
         }
     }
 }

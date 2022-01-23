@@ -5,8 +5,10 @@ using UnityEngine;
 namespace FoxHen {
     public class PlayerInteraction : MonoBehaviour
     {
-        private PlayerStatus playerStatus;
-        private PlayerData playerData;
+        [SerializeField] private PlayerStatus playerStatus;
+        [SerializeField] private PlayerData playerData;
+
+        public const float slowPercent = 0.7f;
 
         private void Start()
         {
@@ -26,15 +28,21 @@ namespace FoxHen {
 
             playerStatus.statusCancelledCallback[Status.stunned] += UnstunnedCallback;
             playerStatus.statusCancelledCallback[Status.invulnerable] += VulnerableCallback;
-            playerStatus.statusCancelledCallback[Status.slowed] += SlowedStartCallback;
+            playerStatus.statusCancelledCallback[Status.slowed] += SlowedStopCallback;
             playerStatus.statusCancelledCallback[Status.hastened] += StopHasteCallback;
         }
 
         #region callbacks
-
         private void SlowedStartCallback(Status _status)
         {
             playerData.eventStack.Add(SlowDown);
+        }
+
+        private void SlowedStopCallback(Status _status)
+        {
+            Debug.Log(playerData.eventStack.Count);
+            playerData.eventStack.Remove(SlowDown);
+            Debug.Log(playerData.eventStack.Count);
         }
 
         private void StunnedCallback(Status _status)
@@ -71,7 +79,7 @@ namespace FoxHen {
 
         public float SlowDown(float moveSpeed)
         {
-            return moveSpeed * 0.6667f;
+            return moveSpeed * (1 - slowPercent);
         }
 
         public float Stop(float moveSpeed)
@@ -81,7 +89,7 @@ namespace FoxHen {
 
         public float MoveFast(float moveSpeed)
         {
-            return moveSpeed * 1.5f;
+            return moveSpeed * (1 / (1 - slowPercent));
         }
 
 
