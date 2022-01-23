@@ -53,7 +53,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<HID::Logitech Logitech Dual Action>/button3"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""LogitechDA"",
                     ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -64,7 +64,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -130,7 +130,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Joystick>/stick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""LogitechDA"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -141,7 +141,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -156,17 +156,29 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
-                    ""isOptional"": true,
+                    ""isOptional"": false,
                     ""isOR"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": true,
+                    ""isOptional"": false,
                     ""isOR"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""LogitechDA"",
+            ""bindingGroup"": ""LogitechDA"",
+            ""devices"": [
                 {
                     ""devicePath"": ""<HID::Logitech Logitech Dual Action>"",
-                    ""isOptional"": true,
+                    ""isOptional"": false,
                     ""isOR"": false
                 }
             ]
@@ -270,6 +282,24 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         {
             if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
             return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
+    private int m_LogitechDASchemeIndex = -1;
+    public InputControlScheme LogitechDAScheme
+    {
+        get
+        {
+            if (m_LogitechDASchemeIndex == -1) m_LogitechDASchemeIndex = asset.FindControlSchemeIndex("LogitechDA");
+            return asset.controlSchemes[m_LogitechDASchemeIndex];
         }
     }
     public interface IPlayer1_KeyboardActions
