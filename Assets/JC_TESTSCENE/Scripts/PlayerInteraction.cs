@@ -23,6 +23,7 @@ namespace FoxHen {
             playerStatus.statusStartedCallback[Status.stunned] += StunnedCallback;
             playerStatus.statusStartedCallback[Status.hastened] += HastenedStartedCallback;
             playerStatus.statusStartedCallback[Status.invulnerable] += InvulnerableCallback;
+            playerStatus.statusStartedCallback[Status.confused] += StartConfusedCallback;
 
             playerStatus.statusPerformedCallback[Status.slowed] += InvulnerableCallback;
 
@@ -30,6 +31,7 @@ namespace FoxHen {
             playerStatus.statusCancelledCallback[Status.invulnerable] += VulnerableCallback;
             playerStatus.statusCancelledCallback[Status.slowed] += SlowedStopCallback;
             playerStatus.statusCancelledCallback[Status.hastened] += StopHasteCallback;
+            playerStatus.statusCancelledCallback[Status.confused] += StopConfusedCallback;
         }
 
         #region callbacks
@@ -77,8 +79,22 @@ namespace FoxHen {
             playerData.eventStack.Remove(MoveFast);
         }
 
+        private void StartConfusedCallback(Status _status)
+        {
+            playerData.eventStack.Add(Confused);
+        }
+
+        private void StopConfusedCallback(Status _status)
+        {
+            playerData.eventStack.Remove(Confused);
+        }
+
         public float SlowDown(float moveSpeed)
         {
+            if (playerData.isInvulnerable)
+            {
+                return moveSpeed;
+            }
             return moveSpeed * (1 - slowPercent);
         }
 
@@ -92,6 +108,14 @@ namespace FoxHen {
             return moveSpeed * (1 / (1 - slowPercent));
         }
 
+        public float Confused(float moveSpeed)
+        {
+            if (playerData.isInvulnerable)
+            {
+                return moveSpeed;
+            }
+            return moveSpeed *= -1;
+        }
 
         #endregion
     }
