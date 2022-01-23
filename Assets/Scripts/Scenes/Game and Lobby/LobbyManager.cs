@@ -65,6 +65,7 @@ namespace FoxHen
             timerText.text = timeTillGameplaySceneTransisiton.ToString("0.#");
             if (timeTillGameplaySceneTransisiton <= 0)
             {
+                AudioManager.Instance.PauseAllMusic();
                 SceneManager.LoadScene("Gameplay");
             }
 
