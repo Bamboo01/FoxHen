@@ -48,7 +48,7 @@ namespace FoxHen
         {
             if (storedItem != ItemType.none)
             {
-                storedItem = itemTypeList[UnityEngine.Random.Range(0, itemTypeList.Count)];
+                storedItem = itemTypeList[UnityEngine.Random.Range((int)ItemType.none, itemTypeList.Count)];
                 return true;
             }
             return false;

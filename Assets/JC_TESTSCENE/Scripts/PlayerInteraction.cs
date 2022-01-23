@@ -13,50 +13,46 @@ namespace FoxHen {
             playerStatus = GetComponent<PlayerStatus>();
             playerData = GetComponent<PlayerData>();
             SetUpCallbacks();
-
         }
 
         private void SetUpCallbacks()
         {
-            playerStatus.statusStartedCallback[Status.slowed] += SlowedCallback;
+            playerStatus.statusStartedCallback[Status.slowed] += SlowedStartCallback;
             playerStatus.statusStartedCallback[Status.stunned] += StunnedCallback;
-            playerStatus.statusStartedCallback[Status.hastened] += HastenedCallback;
+            playerStatus.statusStartedCallback[Status.hastened] += HastenedStartedCallback;
             playerStatus.statusStartedCallback[Status.invulnerable] += InvulnerableCallback;
 
             playerStatus.statusPerformedCallback[Status.slowed] += InvulnerableCallback;
 
-            playerStatus.statusCancelledCallback[Status.slowed] += HastenedCallback;
-
-
+            playerStatus.statusCancelledCallback[Status.stunned] += UnstunnedCallback;
+            playerStatus.statusCancelledCallback[Status.invulnerable] += VulnerableCallback;
+            playerStatus.statusCancelledCallback[Status.slowed] += SlowedStartCallback;
+            playerStatus.statusCancelledCallback[Status.hastened] += StopHasteCallback;
         }
 
         #region callbacks
 
-        private void SlowedCallback(Status _status)
+        private void SlowedStartCallback(Status _status)
         {
-            playerData.moveSpeed *= 0.6667f;
-        }
-
-        private void SlowedPerformedCallback(Status _status)
-        {
-
+            playerData.eventStack.Add(SlowDown);
         }
 
         private void StunnedCallback(Status _status)
         {
-            playerData.moveSpeed *= 0.0f;
+            playerData.isStunned = true;
+            playerData.eventStack.Add(Stop);
         }
 
-        private void HastenedCallback(Status _status)
+        private void HastenedStartedCallback(Status _status)
         {
-            playerData.moveSpeed *= 1.5f;
+            playerData.eventStack.Add(MoveFast);
         }
 
         private void InvulnerableCallback(Status _status)
         {
             playerData.isInvulnerable = true;
-        }
-
+        } 
+        
         private void VulnerableCallback(Status _status)
         {
             playerData.isInvulnerable = false;
@@ -64,8 +60,31 @@ namespace FoxHen {
 
         private void UnstunnedCallback(Status _status)
         {
-            playerData.moveSpeed = playerData.defaultMoveSpeed;
+            playerData.isStunned = false;
+            playerData.eventStack.Remove(Stop);
         }
+
+        private void StopHasteCallback(Status _status)
+        {
+            playerData.eventStack.Remove(MoveFast);
+        }
+
+        public float SlowDown(float moveSpeed)
+        {
+            return moveSpeed * 0.6667f;
+        }
+
+        public float Stop(float moveSpeed)
+        {
+            return moveSpeed * 0.0f;
+        }
+
+        public float MoveFast(float moveSpeed)
+        {
+            return moveSpeed * 1.5f;
+        }
+
+
         #endregion
     }
 }

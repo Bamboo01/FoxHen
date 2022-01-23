@@ -12,11 +12,9 @@ namespace FoxHen
         [SerializeField] SpriteRenderer playerSprite;
         [SerializeField] public PlayerStatus playerStatus { get; private set; }
         [SerializeField] public PlayerData playerData { get; private set; }
-
-        private GameObject player;
-        private Vector2 moveInputValue;
-        private PlayerInventory playerInventory;
-        private Rigidbody2D rigidbody;
+        [SerializeField] private Vector2 moveInputValue;
+        [SerializeField] private PlayerInventory playerInventory;
+        [SerializeField] private Rigidbody2D rigidbody;
 
         private void Start()
         {
@@ -31,7 +29,6 @@ namespace FoxHen
             //inputActions.Player1_Keyboard.Movement.canceled += ResetMovementInput;
 
             DontDestroyOnLoad(gameObject);
-            player = gameObject;
             moveInputValue = Vector2.zero;
             playerStatus = GetComponent<PlayerStatus>();
             playerData = GetComponent<PlayerData>();
