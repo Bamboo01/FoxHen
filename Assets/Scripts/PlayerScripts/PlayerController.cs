@@ -42,7 +42,12 @@ namespace FoxHen
         {
             TransformUpdate();
             playerAnimator.IsRunning(rigidbody.velocity.magnitude > 0.01f);
-            playerSprite.transform.localScale = (rigidbody.velocity.x > 0 && rigidbody.velocity.x != 0.0f) ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
+            Vector3 myScale = playerSprite.transform.localScale;
+
+            if (Mathf.Abs(rigidbody.velocity.x) >= Mathf.Epsilon)
+                myScale.x = (rigidbody.velocity.x > 0) ? Mathf.Abs(myScale.x) : Mathf.Abs(myScale.x) * -1.0f;
+
+            playerSprite.transform.localScale = myScale;
             return;
         }
 
