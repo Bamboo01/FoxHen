@@ -18,6 +18,11 @@ namespace FoxHen
             }
         }
 
+        void OnDestroy()
+        {
+            EventManager.Instance.Close("PlayerSpawned", OnPlayerSpawned);
+        }
+
         public void OnPlayerSpawned(IEventRequestInfo info)
         {
             // TODO: play particles when they spawn

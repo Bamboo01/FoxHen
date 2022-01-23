@@ -8,6 +8,8 @@ namespace FoxHen
 {
     public class PlayerController : MonoBehaviour
     {
+        static int playerIDCounter = 0;
+
         [SerializeField] PlayerAnimator playerAnimator;
         [SerializeField] SpriteRenderer playerSprite;
         [SerializeField] public PlayerStatus playerStatus { get; private set; }
@@ -17,6 +19,14 @@ namespace FoxHen
         private Vector2 moveInputValue;
         private PlayerInventory playerInventory;
         private Rigidbody2D rigidbody;
+
+        public int playerID { get; private set;}
+
+        void Awake()
+        {
+            playerID = playerIDCounter;
+            playerIDCounter++;
+        }
 
         private void Start()
         {

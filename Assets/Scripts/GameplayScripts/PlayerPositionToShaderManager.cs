@@ -26,7 +26,10 @@ namespace FoxHen
             EventManager.Instance.Listen("PlayerSpawned", OnPlayerSpawned);
 
             var players = FindObjectsOfType<PlayerPositionsHolder>();
+
             _numPlayers = players.Length > _maxPlayers ? _maxPlayers :  players.Length;
+
+            if (_numPlayers > 0) isInit = true;
 
             for (int i = 0; i < _numPlayers; i++)
             {
@@ -34,13 +37,23 @@ namespace FoxHen
             }
         }
 
+        void OnDestroy()
+        {
+            EventManager.Instance.Close("PlayerSpawned", OnPlayerSpawned);
+        }
+
         public void OnPlayerSpawned(IEventRequestInfo info)
         {
             if (_numPlayers == 4) return;
             if (_numPlayers == 0) isInit = true;
-            _numPlayers++;
 
-            _players.Add((info as EventRequestInfo).sender as PlayerPositionsHolder);
+            var player = (info as EventRequestInfo).sender as PlayerPositionsHolder;
+
+            if (!_players.Contains(player))
+            {
+                _numPlayers++;
+                _players.Add(player);
+            }
         }
 
         public void AddSeeThroughObject(Renderer obj)
