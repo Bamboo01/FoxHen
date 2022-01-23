@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4621043933024847962}
   - component: {fileID: 1476560640992665887}
-  - component: {fileID: 2751643186586564897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263358284442530077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5716407830997059929}
@@ -44,22 +43,6 @@ SortingGroup:
   m_SortingLayerID: 879155235
   m_SortingLayer: 1
   m_SortingOrder: 0
---- !u!58 &2751643186586564897
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263358284442530077}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -14.806673, y: -12.908454}
-  serializedVersion: 2
-  m_Radius: 1.1678352
 --- !u!1 &1803338340339228035
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3322769677567349588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TVArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +84,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8627427855422106763}
-  - component: {fileID: 3902970070989291569}
   - component: {fileID: 7739571419580749857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,39 +100,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5186686594319021571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.6, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5716407831033167682}
   m_Father: {fileID: 3322769677567349588}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3902970070989291569
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5186686594319021571}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -23.681639, y: -12.127716}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 8.108471, y: 5.527855}
-  m_EdgeRadius: 0
 --- !u!210 &7739571419580749857
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -172,7 +128,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5716407830997059929}
   - component: {fileID: 5716407830997059928}
-  m_Layer: 0
+  - component: {fileID: 6106767422256509731}
+  m_Layer: 6
   m_Name: Cabin_Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5716407830997059930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 14.9, y: 12.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4621043933024847962}
@@ -244,6 +201,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6106767422256509731
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5716407830997059930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -14.806673, y: -12.908454}
+  serializedVersion: 2
+  m_Radius: 1.1678352
 --- !u!1 &5716407831033167683
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +227,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5716407831033167682}
   - component: {fileID: 5716407831033167681}
-  m_Layer: 0
+  - component: {fileID: 4292333035160819399}
+  m_Layer: 6
   m_Name: Cabin_TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5716407831033167683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 23.67, y: 14.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8627427855422106763}
@@ -326,3 +300,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &4292333035160819399
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5716407831033167683}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -23.681639, y: -12.127716}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 76.799995, y: 43.199997}
+    newSize: {x: 76.799995, y: 43.199997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.108471, y: 5.527855}
+  m_EdgeRadius: 0

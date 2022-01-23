@@ -11,6 +11,7 @@ namespace FoxHen
     {
         private CinemachineTargetGroup cinemachineTargetGroup;
         [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+        public bool TargetGroupOn;
 
         void Start()
         {
@@ -23,6 +24,8 @@ namespace FoxHen
                 float radius = p.spriteRenderer.size.x > p.spriteRenderer.size.y ? p.spriteRenderer.size.x : p.spriteRenderer.size.y;
                 cinemachineTargetGroup.AddMember(p.playerSpriteTransform, 1.0f, radius);
             }
+
+            TurnOffTargetGroup(99999);
         }
 
         void OnDestroy()
@@ -45,6 +48,8 @@ namespace FoxHen
             cinemachineVirtualCamera.m_Lens.OrthographicSize = orthoSize;
             cinemachineVirtualCamera.m_LookAt = null;
             cinemachineVirtualCamera.m_Follow = null;
+
+            TargetGroupOn = false;
         }
 
         public void TurnOnTargetGroup()
@@ -52,6 +57,8 @@ namespace FoxHen
             cinemachineTargetGroup.enabled = true;
             cinemachineVirtualCamera.m_LookAt = cinemachineTargetGroup.transform;
             cinemachineVirtualCamera.m_Follow = cinemachineTargetGroup.transform;
+
+            TargetGroupOn = true;
         }
 
         [ContextMenu("TestOff")]

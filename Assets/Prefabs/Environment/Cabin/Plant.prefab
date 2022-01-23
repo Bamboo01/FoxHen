@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2708515096203179541}
   - component: {fileID: 2708515096203179546}
-  m_Layer: 0
+  - component: {fileID: 6143542538257736058}
+  m_Layer: 6
   m_Name: Cabin_Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2708515096203179540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.1, y: -14.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1307795538664726718}
@@ -82,6 +83,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6143542538257736058
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708515096203179540}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -6.0677404, y: 16.065304}
+  serializedVersion: 2
+  m_Radius: 1.2177968
 --- !u!1 &3390940106214196750
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,8 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307795538664726718}
   - component: {fileID: 7235778989840857035}
-  - component: {fileID: 1364295104261200321}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,22 +139,6 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3390940106214196750}
   m_Enabled: 1
-  m_SortingLayerID: 879155235
-  m_SortingLayer: 1
+  m_SortingLayerID: 1090541677
+  m_SortingLayer: -1
   m_SortingOrder: 0
---- !u!58 &1364295104261200321
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3390940106214196750}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -6.0677404, y: 16.065304}
-  serializedVersion: 2
-  m_Radius: 1.2177968

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Bamboo.Events;
 //using Bamboo.UI;
 
 namespace FoxHen
@@ -9,6 +10,7 @@ namespace FoxHen
     public class PlayerController : MonoBehaviour
     {
         static int playerIDCounter = 0;
+        static PlayerController currentFox = null;
 
         [SerializeField] PlayerAnimator playerAnimator;
         [SerializeField] SpriteRenderer playerSprite;
@@ -19,11 +21,54 @@ namespace FoxHen
         [SerializeField] private Rigidbody2D rigidbody;
 
         public int playerID { get; private set;}
+        public bool isFox { private set; get; }
 
         void Awake()
         {
             playerID = playerIDCounter;
             playerIDCounter++;
+        }
+
+        public void TurnIntoFox()
+        {
+            if (currentFox != null)
+            {
+                currentFox.TurnIntoChicken();
+            }
+            currentFox = this;
+            isFox = true;
+            playerAnimator.isChicken = false;
+        }
+
+        public void TurnIntoChicken()
+        {
+            if (currentFox == this)
+            {
+                currentFox = null;
+            }
+
+            isFox = false;
+            playerAnimator.isChicken = true;
+        }
+
+        public void TouchedByFox(PlayerController killer)
+        {
+            PlayerKilledEvent myEvent = new PlayerKilledEvent();
+            myEvent.killer = killer;
+            myEvent.victim = this;
+            EventManager.Instance.Publish("PlayerTouchedByFox", this, myEvent);
+        }
+
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                var controller = collision.gameObject.GetComponent<PlayerController>();
+                if (controller.isFox == true)
+                {
+                    TouchedByFox(controller);
+                }
+            }
         }
 
         private void Start()
