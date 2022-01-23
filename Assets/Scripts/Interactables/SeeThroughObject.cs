@@ -7,8 +7,8 @@ namespace FoxHen
     public class SeeThroughObject : MonoBehaviour
     {
         [SerializeField] public Renderer renderer;
-        [SerializeField] public float minSeeThroughDistance;
-        [SerializeField] public float maxSeeThroughDistance;
+        [SerializeField] public float minSeeThroughDistance = 0.1f;
+        [SerializeField] public float maxSeeThroughDistance = 0.5f;
 
         void Start()
         {

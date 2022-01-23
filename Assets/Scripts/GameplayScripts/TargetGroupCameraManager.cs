@@ -10,6 +10,7 @@ namespace FoxHen
     public class TargetGroupCameraManager : MonoBehaviour
     {
         private CinemachineTargetGroup cinemachineTargetGroup;
+        [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
 
         void Start()
         {
@@ -29,6 +30,12 @@ namespace FoxHen
             PlayerPositionsHolder playerInfo = (info as EventRequestInfo).sender as PlayerPositionsHolder;
             float radius = playerInfo.spriteRenderer.size.x > playerInfo.spriteRenderer.size.y ? playerInfo.spriteRenderer.size.x : playerInfo.spriteRenderer.size.y;
             cinemachineTargetGroup.AddMember(playerInfo.playerSpriteTransform, 1.0f, radius);
+        }
+
+        void TurnOffTargetGroup(int orthoSize)
+        {
+            cinemachineTargetGroup.enabled = false;
+            //cinemachineVirtualCamera.m_Lens.OrthographicSize = cinemachineVirtualCamera.
         }
     }
 }
