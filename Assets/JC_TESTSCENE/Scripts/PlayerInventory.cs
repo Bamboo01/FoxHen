@@ -56,6 +56,7 @@ namespace FoxHen
                 //ifelse henfox
                 storedItem = henItemTypeList[UnityEngine.Random.Range((int)ItemType.none, henItemTypeList.Count)];
                 storedItem = foxItemTypeList[UnityEngine.Random.Range((int)ItemType.none, foxItemTypeList.Count)];
+                UseItem();
                 return true;
             }
             return false;
