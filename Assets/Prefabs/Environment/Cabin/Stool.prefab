@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 858899207589972839}
   - component: {fileID: 858899207589972836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cabin_Stool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2296422720514019562}
   - component: {fileID: 2898888913182296436}
   - component: {fileID: 7132554888176974036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stool
   m_TagString: Untagged
   m_Icon: {fileID: 0}

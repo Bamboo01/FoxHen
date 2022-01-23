@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8114322737306264276}
   - component: {fileID: 6006197009654486333}
-  - component: {fileID: 405854268828267884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallSofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116161045517478276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 14.6, y: 3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2881281457930913235}
@@ -41,38 +40,9 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116161045517478276}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1090541677
+  m_SortingLayer: -1
   m_SortingOrder: 0
---- !u!60 &405854268828267884
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2116161045517478276}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -9.795763, y: 3.3947978}
-      - {x: -13.030272, y: 1.3407102}
-      - {x: -9.835383, y: -2.0632615}
-      - {x: -6.6763206, y: 0.34678477}
 --- !u!1 &2714559112092722516
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,9 +52,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4949189128275652198}
-  - component: {fileID: 619429537722867491}
   - component: {fileID: 5450087683290805651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,39 +68,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714559112092722516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.1, y: -2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2881281457009069107}
   m_Father: {fileID: 4890871754872794921}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &619429537722867491
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2714559112092722516}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -23.714249, y: -2.372043}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10.916801, y: 4.2225766}
-  m_EdgeRadius: 0
 --- !u!210 &5450087683290805651
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -140,8 +83,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714559112092722516}
   m_Enabled: 1
-  m_SortingLayerID: 879155235
-  m_SortingLayer: 1
+  m_SortingLayerID: 1090541677
+  m_SortingLayer: -1
   m_SortingOrder: 0
 --- !u!1 &2881281457009069106
 GameObject:
@@ -153,7 +96,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2881281457009069107}
   - component: {fileID: 2881281457009069108}
-  m_Layer: 0
+  - component: {fileID: 2274642527136868497}
+  m_Layer: 6
   m_Name: Cabin_Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2881281457009069106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 23.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4949189128275652198}
@@ -225,6 +169,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2274642527136868497
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881281457009069106}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -23.714249, y: -1.6347108}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 76.799995, y: 43.199997}
+    newSize: {x: 76.799995, y: 43.199997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.916801, y: 4.18638}
+  m_EdgeRadius: 0
 --- !u!1 &2881281457930913234
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +205,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2881281457930913235}
   - component: {fileID: 2881281457930913236}
-  m_Layer: 0
+  - component: {fileID: 3651625619510756898}
+  m_Layer: 6
   m_Name: Cabin_SmallSofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2881281457930913234}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.8, y: -6.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8114322737306264276}
@@ -307,6 +278,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &3651625619510756898
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881281457930913234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 76.799995, y: 43.199997}
+    newSize: {x: 76.799995, y: 43.199997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -9.843637, y: 7.346084}
+      - {x: -10.711049, y: 6.8432393}
+      - {x: -10.716806, y: 5.481626}
+      - {x: -7.565151, y: 2.1163497}
+      - {x: -6.7775345, y: 2.646624}
+      - {x: -6.822229, y: 4.1177006}
 --- !u!1 &2981514281631235906
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4890871754872794921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sofa&Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,8 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2374734304405005708}
   - component: {fileID: 5382168524073002584}
-  - component: {fileID: 8299161493320835919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BigSofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3334860059847155716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 9.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4145024433492402157}
@@ -381,35 +382,9 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3334860059847155716}
   m_Enabled: 1
-  m_SortingLayerID: 879155235
-  m_SortingLayer: 1
+  m_SortingLayerID: 1090541677
+  m_SortingLayer: -1
   m_SortingOrder: 0
---- !u!61 &8299161493320835919
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3334860059847155716}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -24.101185, y: 9.853022}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16.347092, y: 3.1990356}
-  m_EdgeRadius: 0
 --- !u!1 &4978408697564940674
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +395,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4145024433492402157}
   - component: {fileID: 9210683094411559635}
-  m_Layer: 0
+  - component: {fileID: 3874235939335485702}
+  m_Layer: 6
   m_Name: Cabin_BigSofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4978408697564940674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 24.6, y: -11.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2374734304405005708}
@@ -492,3 +468,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3874235939335485702
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978408697564940674}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -24.101185, y: 9.853022}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 76.799995, y: 43.199997}
+    newSize: {x: 76.799995, y: 43.199997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.347092, y: 3.1990356}
+  m_EdgeRadius: 0

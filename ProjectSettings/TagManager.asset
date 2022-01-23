@@ -50,3 +50,6 @@ TagManager:
   - name: Foreground
     uniqueID: 3777731063
     locked: 0
+  - name: Splash
+    uniqueID: 2763436573
+    locked: 0
