@@ -57,11 +57,11 @@ namespace FoxHen
                 //ifelse henfox
                 if (type)
                 {
-                    storedItem = foxItemTypeList[UnityEngine.Random.Range((int)ItemType.none, foxItemTypeList.Count)];
+                    storedItem = foxItemTypeList[UnityEngine.Random.Range((int)ItemType.none + 1, foxItemTypeList.Count)];
                 }
                 else
                 {
-                    storedItem = henItemTypeList[UnityEngine.Random.Range((int)ItemType.none, henItemTypeList.Count)];
+                    storedItem = henItemTypeList[UnityEngine.Random.Range((int)ItemType.none + 1, henItemTypeList.Count)];
                 }
                 UseItem();
                 return true;
