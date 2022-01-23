@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 1
   shldSetDefaultVols: 1
-  defaultMusicVol: 0.4
+  defaultMusicVol: 0.24
   defaultSoundVol: 1
   musicAudioClips:
   - {fileID: 8300000, guid: 3e357b7be9258c4429c6f42c25bb1b56, type: 3}
