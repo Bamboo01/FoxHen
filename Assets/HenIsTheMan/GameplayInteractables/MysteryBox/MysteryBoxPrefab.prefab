@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f57e63dc7692ee4cb0ad197480e97d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplayInteractableAttribs: {fileID: 11400000, guid: 9a66b250a2ae26941a102cdc16f01943, type: 2}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
+  gameplayInteractableAttribs: {fileID: 11400000, guid: e12a969ebe22d094a89b9178e727e5b3, type: 2}
 --- !u!212 &2611535494941451071
 SpriteRenderer:
   m_ObjectHideFlags: 0

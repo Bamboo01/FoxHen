@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3754e6ed335414da8372cc2105c0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplayInteractableAttribs: {fileID: 11400000, guid: 9a66b250a2ae26941a102cdc16f01943, type: 2}
+  gameplayInteractableAttribs: {fileID: 11400000, guid: 8b49d288bdf8b53429a1e13b1fddeb09, type: 2}
 --- !u!212 &3432356550944780326
 SpriteRenderer:
   m_ObjectHideFlags: 0
