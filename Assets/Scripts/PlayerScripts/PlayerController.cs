@@ -10,6 +10,7 @@ namespace FoxHen
     {
         [SerializeField] PlayerAnimator playerAnimator;
         [SerializeField] SpriteRenderer playerSprite;
+        public SpriteRenderer playerIndicatorSprite;
         [SerializeField] public PlayerStatus playerStatus { get; private set; }
         [SerializeField] public PlayerData playerData { get; private set; }
 
