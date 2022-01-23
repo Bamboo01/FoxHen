@@ -9,7 +9,6 @@ namespace FoxHen {
             triggerDelegate += (other) => {
                 bloodParticleSystemControl.Emit();
                 other.gameObject.GetComponent<PlayerStatus>()?.AddStatus(Status.slowed);
-                Debug.Log(other.gameObject.GetComponent<PlayerStatus>());
             };
         }
     }
