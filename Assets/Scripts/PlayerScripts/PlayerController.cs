@@ -8,10 +8,12 @@ namespace FoxHen
 {
     public class PlayerController : MonoBehaviour
     {
-        public PlayerAttributes playerAttrib { get; private set; }
+        [SerializeField] PlayerAnimator playerAnimator;
+        [SerializeField] SpriteRenderer playerSprite;
+        [SerializeField] public PlayerAttributes playerAttrib { get; private set; }
+
         private GameObject player;
         private Vector2 moveInputValue;
-        //private PlayerInputActions inputActions;
         private PlayerInventory playerInventory;
         private Rigidbody2D rigidbody;
 
@@ -39,6 +41,8 @@ namespace FoxHen
         private void Update()
         {
             TransformUpdate();
+            playerAnimator.IsRunning(rigidbody.velocity.magnitude > 0.01f);
+            playerSprite.transform.localScale = (rigidbody.velocity.x > 0 && rigidbody.velocity.x != 0.0f) ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
             return;
         }
 
@@ -69,6 +73,7 @@ namespace FoxHen
         {
             if (context.phase == InputActionPhase.Performed)//phase performing
             {
+                playerAnimator.PickupItem();
                 playerInventory.UseItem();
                 Debug.Log("HI");
             }

@@ -553,6 +553,21 @@ Transform:
   m_Father: {fileID: 3907578121338100172}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7562757266636097064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548528774259234616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 3548528775755119621}
+  minSeeThroughDistance: 0.1
+  maxSeeThroughDistance: 0.5
 --- !u!1 &3548528774459746840
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +905,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 9}
   m_EdgeRadius: 0
+--- !u!114 &7562757266636097062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548528775192240209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 3548528774340067806}
+  minSeeThroughDistance: 0.1
+  maxSeeThroughDistance: 0.5
 --- !u!1 &3548528775259913737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,36 +1154,6 @@ Transform:
   m_Father: {fileID: 7337137938544390270}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &236093986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6470168210483061870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderer: {fileID: 6470168209218668001}
-  minSeeThroughDistance: 0.1
-  maxSeeThroughDistance: 0.5
---- !u!114 &236093985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6470168209272247047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderer: {fileID: 6470168209904990266}
-  minSeeThroughDistance: 0.1
-  maxSeeThroughDistance: 0.5
 --- !u!1 &3548528775700669622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,7 +1375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3907578121137153398}
   - component: {fileID: 3907578121137153399}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CinemachineConfiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1406,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1435,6 +1435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3907578121338100172}
   - component: {fileID: 2747535792863750774}
+  - component: {fileID: 1650894148}
   m_Layer: 0
   m_Name: BackyardLevel
   m_TagString: Untagged
@@ -1477,6 +1478,19 @@ MonoBehaviour:
   cameraConfiner: {fileID: 3907578121137153399}
   spriteRenderer: {fileID: 3907578121525388134}
   outOfBoundsThreshold: {x: 10, y: 10}
+--- !u!114 &1650894148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907578121338100175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3657477d436a8e148b4e70b216998d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
 --- !u!1 &3907578121338233324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,7 +1652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3907578121525388135}
   - component: {fileID: 3907578121525388134}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Backdrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1856,34 +1870,34 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 3907578121137153399}
   m_ConfineScreenEdges: 1
   m_Damping: 0
---- !u!114 &7562757266636097062
+--- !u!114 &236093985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3548528775192240209}
+  m_GameObject: {fileID: 6470168209272247047}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 3548528774340067806}
+  renderer: {fileID: 6470168209904990266}
   minSeeThroughDistance: 0.1
   maxSeeThroughDistance: 0.5
---- !u!114 &7562757266636097064
+--- !u!114 &236093986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3548528774259234616}
+  m_GameObject: {fileID: 6470168210483061870}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9e96eb64b0a98d4880bef7ae7ff1535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 3548528775755119621}
+  renderer: {fileID: 6470168209218668001}
   minSeeThroughDistance: 0.1
   maxSeeThroughDistance: 0.5
 --- !u!1 &8216196601769000720
@@ -3223,7 +3237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7562757267633938366, guid: 4529faf30feb05b4bb8cc538d267c9e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7562757267633938366, guid: 4529faf30feb05b4bb8cc538d267c9e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3635,11 +3649,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7562757267633938366, guid: 4529faf30feb05b4bb8cc538d267c9e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.75
+      value: 12.25
       objectReference: {fileID: 0}
     - target: {fileID: 7562757267633938366, guid: 4529faf30feb05b4bb8cc538d267c9e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.5
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 7562757267633938366, guid: 4529faf30feb05b4bb8cc538d267c9e6, type: 3}
       propertyPath: m_LocalPosition.z

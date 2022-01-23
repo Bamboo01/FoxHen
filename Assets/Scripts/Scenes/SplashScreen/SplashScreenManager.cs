@@ -55,17 +55,13 @@ public class SplashScreenManager : MonoBehaviour
         IEnumerator StartUnloadingSplashScreen()
         {
             var asyncUnload = SceneManager.UnloadSceneAsync(gameObject.scene);
-            Debug.Log("Unloading");
             while (!asyncUnload.isDone) yield return null;
-            Debug.Log("Unloading 01");
             yield break;
         }
 
         IEnumerator StartLoadingLobbyScene()
         {
-            Debug.Log("Loading");
             var _asyncSceneLoadOperation = SceneManager.LoadSceneAsync("LobbyScene", LoadSceneMode.Additive);
-            Debug.Log("Loading 01");
             _asyncSceneLoadOperation.allowSceneActivation = false;
             while (!_asyncSceneLoadOperation.isDone)
             {

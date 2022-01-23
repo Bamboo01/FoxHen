@@ -24,6 +24,14 @@ namespace FoxHen
         void Start()
         {
             EventManager.Instance.Listen("PlayerSpawned", OnPlayerSpawned);
+
+            var players = FindObjectsOfType<PlayerPositionsHolder>();
+            _numPlayers = players.Length > _maxPlayers ? _maxPlayers :  players.Length;
+
+            for (int i = 0; i < _numPlayers; i++)
+            {
+                _players.Add(players[i]);
+            }
         }
 
         public void OnPlayerSpawned(IEventRequestInfo info)

@@ -91,7 +91,7 @@ Shader "Unlit/SeeThroughShader"
 			{
 				float4 c = tex2D(_MainTex, IN.texcoord);
 
-                if (_NumPlayers > 0 && c.a > 0.05f)
+                if (_NumPlayers > 0 && c.a > 0.90f)
                 {
                     float lowestDist = 99999999.0f;
                     float4 closestPlayer;
