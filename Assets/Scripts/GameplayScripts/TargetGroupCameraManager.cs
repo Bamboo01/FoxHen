@@ -7,7 +7,7 @@ using Bamboo.Events;
 
 namespace FoxHen
 { 
-    public class TargetGroupCameraManager : MonoBehaviour
+    public class TargetGroupCameraManager : Singleton<TargetGroupCameraManager>
     {
         private CinemachineTargetGroup cinemachineTargetGroup;
         [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
@@ -32,10 +32,33 @@ namespace FoxHen
             cinemachineTargetGroup.AddMember(playerInfo.playerSpriteTransform, 1.0f, radius);
         }
 
-        void TurnOffTargetGroup(int orthoSize)
+        public void TurnOffTargetGroup(float orthoSize)
         {
             cinemachineTargetGroup.enabled = false;
-            //cinemachineVirtualCamera.m_Lens.OrthographicSize = cinemachineVirtualCamera.
+            var framingTransposer = cinemachineVirtualCamera.GetComponentInChildren<CinemachineFramingTransposer>();
+            orthoSize = Mathf.Clamp(orthoSize, framingTransposer.m_MinimumOrthoSize, framingTransposer.m_MaximumOrthoSize);
+            cinemachineVirtualCamera.m_Lens.OrthographicSize = orthoSize;
+            cinemachineVirtualCamera.m_LookAt = null;
+            cinemachineVirtualCamera.m_Follow = null;
+        }
+
+        public void TurnOnTargetGroup()
+        {
+            cinemachineTargetGroup.enabled = true;
+            cinemachineVirtualCamera.m_LookAt = cinemachineTargetGroup.transform;
+            cinemachineVirtualCamera.m_Follow = cinemachineTargetGroup.transform;
+        }
+
+        [ContextMenu("TestOff")]
+        public void TestTurnOff()
+        {
+            TurnOffTargetGroup(99999);
+        }
+
+        [ContextMenu("TestOn")]
+        public void TestTurnOn()
+        {
+            TurnOnTargetGroup();
         }
     }
 }

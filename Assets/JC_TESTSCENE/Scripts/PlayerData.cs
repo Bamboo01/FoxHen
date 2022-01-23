@@ -9,4 +9,8 @@ public class PlayerData : MonoBehaviour
 
     public bool isInvulnerable { get; set; }
 
+    void Start()
+    {
+        moveSpeed = defaultMoveSpeed;
+    }
 }
