@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 namespace FoxHen
@@ -19,7 +20,7 @@ namespace FoxHen
 
         private void Update()
         {
-            if (allPlayersPresent)
+            if (allPlayersPresent && LobbyManager.Instance.GetPlayerCount() > 1)
                 LobbyManager.Instance.AllPlayersInCoop(Time.deltaTime);
         }
 
@@ -43,9 +44,15 @@ namespace FoxHen
         {
             if (collision.gameObject.tag == "Player")
             {
-                LobbyManager.Instance.PlayerExitCoop();
+                LobbyManager.Instance.TimerReset();
                 allPlayersPresent = false;
             }
+        }
+
+        public void playerEnter(PlayerInput input)
+        {
+            LobbyManager.Instance.TimerReset();
+            allPlayersPresent = false;
         }
     }
 }

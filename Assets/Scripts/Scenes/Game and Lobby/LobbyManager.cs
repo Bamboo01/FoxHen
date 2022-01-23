@@ -13,6 +13,7 @@ namespace FoxHen
     public class LobbyManager : Singleton<LobbyManager>
     {
         [SerializeField] List<PlayerSlot> playerSlots;
+        [SerializeField] Text timerText;
         Dictionary<PlayerSlot, GameObject> assignedSlots;
         float timeTillGameplaySceneTransisiton;
 
@@ -30,6 +31,7 @@ namespace FoxHen
         public void playerEnter(PlayerInput input)
         {
             GameObject newPlayer = input.gameObject;
+            int playerNum = 0;
             foreach (PlayerSlot slot in assignedSlots.Keys)
             {
                 assignedSlots.TryGetValue(slot, out GameObject assignedPlayer);
@@ -37,23 +39,40 @@ namespace FoxHen
                 {
                     assignedSlots[slot] = newPlayer;
                     slot.playerAssigned();
+                    Color indicatorColor = Color.grey;
+                    switch (playerNum)
+                    {
+                        case 1:
+                            indicatorColor = Color.red;
+                            break;
+                        case 2:
+                            indicatorColor = Color.green;
+                            break;
+                        case 3:
+                            indicatorColor = Color.blue;
+                            break;
+                    }
+                    newPlayer.GetComponent<PlayerController>().playerIndicatorSprite.color = indicatorColor;
                     break;
                 }
+                ++playerNum;
             }
         }
 
         public void AllPlayersInCoop(float deltaTime)
         {
             timeTillGameplaySceneTransisiton -= deltaTime;
+            timerText.text = timeTillGameplaySceneTransisiton.ToString("0.#");
             if (timeTillGameplaySceneTransisiton <= 0)
             {
                 SceneManager.LoadScene("Gameplay");
             }
         }
 
-        public void PlayerExitCoop()
+        public void TimerReset()
         {
             timeTillGameplaySceneTransisiton = 5f;
+            timerText.text = "";
         }
 
         public int GetPlayerCount()
