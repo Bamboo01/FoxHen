@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1656060500285727031}
   - component: {fileID: 8681143171104606875}
-  m_Layer: 0
+  - component: {fileID: 8838896692524137329}
+  m_Layer: 6
   m_Name: Cabin_Fireplace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439932894184792951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -34.66, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 253619277615956293}
@@ -82,46 +83,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2011979150411976440
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 253619277615956293}
-  - component: {fileID: 7075543237153474598}
-  - component: {fileID: 3501148739214200004}
-  m_Layer: 0
-  m_Name: Fireplace
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &253619277615956293
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011979150411976440}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1656060500285727031}
-  m_Father: {fileID: 5564968540373634435}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7075543237153474598
+--- !u!61 &8838896692524137329
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011979150411976440}
+  m_GameObject: {fileID: 1439932894184792951}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -141,6 +109,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7065506, y: 12.402447}
   m_EdgeRadius: 0
+--- !u!1 &2011979150411976440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 253619277615956293}
+  - component: {fileID: 3501148739214200004}
+  m_Layer: 6
+  m_Name: Fireplace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &253619277615956293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011979150411976440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2299995, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1656060500285727031}
+  m_Father: {fileID: 5564968540373634435}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &3501148739214200004
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -149,8 +149,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011979150411976440}
   m_Enabled: 1
-  m_SortingLayerID: 879155235
-  m_SortingLayer: 1
+  m_SortingLayerID: -517236233
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!1 &7484108358891634355
 GameObject:
@@ -161,9 +161,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6117220208519038987}
-  - component: {fileID: 388848380758405235}
   - component: {fileID: 4024069297959699796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireplaceWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,39 +177,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7484108358891634355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.63, y: -1.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7218452750814308988}
   m_Father: {fileID: 5564968540373634435}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &388848380758405235
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7484108358891634355}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 29.765009, y: -1.6029619}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.114605, y: 3.170884}
-  m_EdgeRadius: 0
 --- !u!210 &4024069297959699796
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -219,8 +192,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7484108358891634355}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1090541677
+  m_SortingLayer: -1
   m_SortingOrder: 0
 --- !u!1 &7928134106832818924
 GameObject:
@@ -232,7 +205,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7218452750814308988}
   - component: {fileID: 8466394938861153190}
-  m_Layer: 0
+  - component: {fileID: 4706480395952836902}
+  m_Layer: 6
   m_Name: Cabin_Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7928134106832818924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -29.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6117220208519038987}
@@ -304,6 +278,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &4706480395952836902
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928134106832818924}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 29.765009, y: -1.6029619}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 76.799995, y: 43.199997}
+    newSize: {x: 76.799995, y: 43.199997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.114605, y: 3.170884}
+  m_EdgeRadius: 0
 --- !u!1 &8131256115209998067
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5564968540373634435}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FireplaceArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

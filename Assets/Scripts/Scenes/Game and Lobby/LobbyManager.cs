@@ -67,12 +67,18 @@ namespace FoxHen
             {
                 SceneManager.LoadScene("Gameplay");
             }
+
+            if (!TargetGroupCameraManager.Instance.TargetGroupOn)
+                TargetGroupCameraManager.Instance.TurnOnTargetGroup();
         }
 
         public void TimerReset()
         {
             timeTillGameplaySceneTransisiton = 5f;
             timerText.text = "";
+
+            if (TargetGroupCameraManager.Instance.TargetGroupOn)
+                TargetGroupCameraManager.Instance.TurnOffTargetGroup(99999);
         }
 
         public int GetPlayerCount()
